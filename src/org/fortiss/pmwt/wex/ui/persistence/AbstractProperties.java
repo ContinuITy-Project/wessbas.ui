@@ -1,3 +1,19 @@
+/***************************************************************************
+ * Copyright (c) 2016 the WESSBAS project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ***************************************************************************/
+
 package org.fortiss.pmwt.wex.ui.persistence;
 
 import java.io.File;
@@ -13,13 +29,12 @@ import org.fortiss.pmwt.wex.ui.utils.NumberUtils;
  * Common functionality for properties.
  */
 
-public abstract class AbstractProperties extends Properties
-{
+public abstract class AbstractProperties extends Properties {
 	/**
 	 * Serialization.
 	 */
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Adds a string to the properties.
@@ -32,9 +47,9 @@ public abstract class AbstractProperties extends Properties
 	 *            Default value for the property if property value is null.
 	 */
 
-	public void putString( String strProperty, String strValue, String strDefaultValue )
-	{
-		put( strProperty, strValue != null ? strValue : strDefaultValue );
+	public void putString(String strProperty, String strValue,
+			String strDefaultValue) {
+		put(strProperty, strValue != null ? strValue : strDefaultValue);
 	}
 
 	/**
@@ -46,9 +61,8 @@ public abstract class AbstractProperties extends Properties
 	 *            Value of the property.
 	 */
 
-	public void putBoolean( String strKey, boolean bValue )
-	{
-		put( strKey, new Boolean( bValue ).toString() );
+	public void putBoolean(String strKey, boolean bValue) {
+		put(strKey, new Boolean(bValue).toString());
 	}
 
 	/**
@@ -60,9 +74,8 @@ public abstract class AbstractProperties extends Properties
 	 *            Value of the property.
 	 */
 
-	public void putString( String strKey, String strValue )
-	{
-		put( strKey, strValue != null ? strValue : "" );
+	public void putString(String strKey, String strValue) {
+		put(strKey, strValue != null ? strValue : "");
 	}
 
 	/**
@@ -70,13 +83,13 @@ public abstract class AbstractProperties extends Properties
 	 *            Name of the property.
 	 * @param bDefaultValue
 	 *            Default value if the property cannot be retrieved.
-	 * @return Boolean value refering to the key if exists, the default value otherwise.
+	 * @return Boolean value refering to the key if exists, the default value
+	 *         otherwise.
 	 */
 
-	public boolean getBoolean( String strKey, boolean bDefaultValue )
-	{
-		String strValue = (String)get( strKey );
-		Boolean bValue = new Boolean( strValue );
+	public boolean getBoolean(String strKey, boolean bDefaultValue) {
+		String strValue = (String) get(strKey);
+		Boolean bValue = new Boolean(strValue);
 		return bValue != null ? bValue.booleanValue() : bDefaultValue;
 	}
 
@@ -85,12 +98,12 @@ public abstract class AbstractProperties extends Properties
 	 *            Name of the property.
 	 * @param strDefaultValue
 	 *            Default value if the property cannot be retrieved.
-	 * @return String value refering to the key if exists, the default value otherwise.
+	 * @return String value refering to the key if exists, the default value
+	 *         otherwise.
 	 */
 
-	public String getString( String strKey, String strDefaultValue )
-	{
-		String strValue = (String)get( strKey );
+	public String getString(String strKey, String strDefaultValue) {
+		String strValue = (String) get(strKey);
 		return strValue != null ? strValue : strDefaultValue;
 	}
 
@@ -99,12 +112,12 @@ public abstract class AbstractProperties extends Properties
 	 *            Name of the property.
 	 * @param nDefaultValue
 	 *            Default value if the property cannot be retrieved.
-	 * @return int value referting to the key if exists, the default value otherwise.
+	 * @return int value referting to the key if exists, the default value
+	 *         otherwise.
 	 */
 
-	public int getInt( String strKey, int nDefaultValue )
-	{
-		return NumberUtils.stringToInt( (String)get( strKey ), nDefaultValue );
+	public int getInt(String strKey, int nDefaultValue) {
+		return NumberUtils.stringToInt((String) get(strKey), nDefaultValue);
 	}
 
 	/**
@@ -116,9 +129,8 @@ public abstract class AbstractProperties extends Properties
 	 *             Occurs, if something unexpected happens.
 	 */
 
-	public void write( File fOutputFile ) throws IOException
-	{
-		FileUtils.storeProperties( fOutputFile, this );
+	public void write(File fOutputFile) throws IOException {
+		FileUtils.storeProperties(fOutputFile, this);
 	}
 
 	/**
@@ -130,13 +142,12 @@ public abstract class AbstractProperties extends Properties
 	 *            Target properties.
 	 */
 
-	public static void copy( Properties pFrom, Properties pTo )
-	{
-		Iterator< Map.Entry< Object, Object >> iterator = pFrom.entrySet().iterator();
-		while( iterator.hasNext() )
-		{
-			Map.Entry< Object, Object > mapEntry = iterator.next();
-			pTo.put( mapEntry.getKey(), mapEntry.getValue() );
+	public static void copy(Properties pFrom, Properties pTo) {
+		Iterator<Map.Entry<Object, Object>> iterator = pFrom.entrySet()
+				.iterator();
+		while (iterator.hasNext()) {
+			Map.Entry<Object, Object> mapEntry = iterator.next();
+			pTo.put(mapEntry.getKey(), mapEntry.getValue());
 		}
 	}
 }

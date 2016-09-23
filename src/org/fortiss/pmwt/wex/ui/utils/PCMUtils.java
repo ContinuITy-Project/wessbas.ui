@@ -1,3 +1,19 @@
+/***************************************************************************
+ * Copyright (c) 2016 the WESSBAS project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ***************************************************************************/
+
 package org.fortiss.pmwt.wex.ui.utils;
 
 import java.io.File;
@@ -23,23 +39,22 @@ import de.uka.ipd.sdq.pcm.system.System;
  * Collection of helper methods to handle PCM models.
  */
 
-public class PCMUtils
-{
+public class PCMUtils {
 	/**
-	 * Helper method that allows reading/writing xmi files without being an eclipse plugin.
+	 * Helper method that allows reading/writing xmi files without being an
+	 * eclipse plugin.
 	 */
 
-	public static void registerFactoryForECore()
-	{
-		Map< String, Object > mapResource = Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
-		mapResource.put( "*", new XMIResourceFactoryImpl() {
+	public static void registerFactoryForECore() {
+		Map<String, Object> mapResource = Resource.Factory.Registry.INSTANCE
+				.getExtensionToFactoryMap();
+		mapResource.put("*", new XMIResourceFactoryImpl() {
 			@Override
-			public Resource createResource( URI uri )
-			{
-				XMIResource xmiResource = new XMIResourceImpl( uri );
+			public Resource createResource(URI uri) {
+				XMIResource xmiResource = new XMIResourceImpl(uri);
 				return xmiResource;
 			}
-		} );
+		});
 	}
 
 	/**
@@ -52,19 +67,20 @@ public class PCMUtils
 	 *             Occurs if something unexpected happens.
 	 */
 
-	public static System getSystem( File file ) throws IOException
-	{
+	public static System getSystem(File file) throws IOException {
 		ResourceSet resourceSet = new ResourceSetImpl();
 
 		// -- Register UML: System Model
 		Map packageRegistry = resourceSet.getPackageRegistry();
-		packageRegistry.put( de.uka.ipd.sdq.pcm.system.SystemPackage.eNS_URI, de.uka.ipd.sdq.pcm.system.SystemPackage.eINSTANCE );
+		packageRegistry.put(de.uka.ipd.sdq.pcm.system.SystemPackage.eNS_URI,
+				de.uka.ipd.sdq.pcm.system.SystemPackage.eINSTANCE);
 
 		// --
-		Resource resource = resourceSet.getResource( URI.createFileURI( file.getAbsolutePath() ), true );
-		resource.load( Collections.EMPTY_MAP );
+		Resource resource = resourceSet.getResource(
+				URI.createFileURI(file.getAbsolutePath()), true);
+		resource.load(Collections.EMPTY_MAP);
 
-		System sys = (System)resource.getContents().get( 0 );
+		System sys = (System) resource.getContents().get(0);
 		return sys;
 	}
 
@@ -78,19 +94,17 @@ public class PCMUtils
 	 *             Occurs if something unexpected happens.
 	 */
 
-	public static String[] getProvidedRoleArray( System sys ) throws IOException
-	{
-		List< String > lstResult = new ArrayList< String >();
+	public static String[] getProvidedRoleArray(System sys) throws IOException {
+		List<String> lstResult = new ArrayList<String>();
 
-		if( sys != null )
-		{
-			EList< ProvidedRole > lstProvidedRole = sys.getProvidedRoles_InterfaceProvidingEntity();
-			for( ProvidedRole providedRole : lstProvidedRole )
-			{
-				lstResult.add( providedRole.getEntityName() );
+		if (sys != null) {
+			EList<ProvidedRole> lstProvidedRole = sys
+					.getProvidedRoles_InterfaceProvidingEntity();
+			for (ProvidedRole providedRole : lstProvidedRole) {
+				lstResult.add(providedRole.getEntityName());
 			}
 		}
 
-		return lstResult.toArray( new String[ 0 ] );
+		return lstResult.toArray(new String[0]);
 	}
 }

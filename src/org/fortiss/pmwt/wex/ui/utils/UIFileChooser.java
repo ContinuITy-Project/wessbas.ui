@@ -1,3 +1,19 @@
+/***************************************************************************
+ * Copyright (c) 2016 the WESSBAS project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ***************************************************************************/
+
 package org.fortiss.pmwt.wex.ui.utils;
 
 import java.awt.Component;
@@ -10,13 +26,12 @@ import javax.swing.JTextField;
  * Collection of methods to help to choose files.
  */
 
-public class UIFileChooser
-{
+public class UIFileChooser {
 	/**
 	 * Last selected path.
 	 */
 
-	private static File	s_fLastPath	= null;
+	private static File s_fLastPath = null;
 
 	/**
 	 * Dialog to open multiple files.
@@ -26,18 +41,15 @@ public class UIFileChooser
 	 * @return Array of selected files.
 	 */
 
-	public static File[] showMultipleFileOpenDialog( Component parentFrame )
-	{
-		JFileChooser fileChooser = new JFileChooser( s_fLastPath );
-		fileChooser.setMultiSelectionEnabled( true );
+	public static File[] showMultipleFileOpenDialog(Component parentFrame) {
+		JFileChooser fileChooser = new JFileChooser(s_fLastPath);
+		fileChooser.setMultiSelectionEnabled(true);
 
 		File[] arrFile = null;
-		if( fileChooser.showOpenDialog( parentFrame ) == JFileChooser.APPROVE_OPTION )
-		{
+		if (fileChooser.showOpenDialog(parentFrame) == JFileChooser.APPROVE_OPTION) {
 			arrFile = fileChooser.getSelectedFiles();
-			if( arrFile != null )
-			{
-				s_fLastPath = arrFile[ 0 ];
+			if (arrFile != null) {
+				s_fLastPath = arrFile[0];
 			}
 		}
 
@@ -52,9 +64,8 @@ public class UIFileChooser
 	 * @return The selected file.
 	 */
 
-	public static File showFileOpenDialog( Component parentFrame )
-	{
-		return showOpenDialog( parentFrame, false );
+	public static File showFileOpenDialog(Component parentFrame) {
+		return showOpenDialog(parentFrame, false);
 	}
 
 	/**
@@ -65,9 +76,8 @@ public class UIFileChooser
 	 * @return The selected directory.
 	 */
 
-	public static File showDirectoryOpenDialog( Component parentFrame )
-	{
-		return showOpenDialog( parentFrame, true );
+	public static File showDirectoryOpenDialog(Component parentFrame) {
+		return showOpenDialog(parentFrame, true);
 	}
 
 	/**
@@ -77,8 +87,7 @@ public class UIFileChooser
 	 *            Path to be set.
 	 */
 
-	public static void setLastPath( File fLastPath )
-	{
+	public static void setLastPath(File fLastPath) {
 		s_fLastPath = fLastPath;
 	}
 
@@ -88,26 +97,24 @@ public class UIFileChooser
 	 * @param parentFrame
 	 *            Parent frame to be disabled while showing the dialog.
 	 * @param bSelectDirectoryInsteadOfFile
-	 *            True indicates the selection of directories, false indicates the selection of files.
+	 *            True indicates the selection of directories, false indicates
+	 *            the selection of files.
 	 * @return Selected files or directories.
 	 */
 
-	public static File showOpenDialog( Component parentFrame, boolean bSelectDirectoryInsteadOfFile )
-	{
-		JFileChooser fileChooser = new JFileChooser( s_fLastPath );
+	public static File showOpenDialog(Component parentFrame,
+			boolean bSelectDirectoryInsteadOfFile) {
+		JFileChooser fileChooser = new JFileChooser(s_fLastPath);
 
-		if( bSelectDirectoryInsteadOfFile )
-		{
-			fileChooser.setFileSelectionMode( JFileChooser.DIRECTORIES_ONLY );
-			fileChooser.setAcceptAllFileFilterUsed( false );
+		if (bSelectDirectoryInsteadOfFile) {
+			fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			fileChooser.setAcceptAllFileFilterUsed(false);
 		}
 
 		File file = null;
-		if( fileChooser.showOpenDialog( parentFrame ) == JFileChooser.APPROVE_OPTION )
-		{
+		if (fileChooser.showOpenDialog(parentFrame) == JFileChooser.APPROVE_OPTION) {
 			file = fileChooser.getSelectedFile();
-			if( file != null )
-			{
+			if (file != null) {
 				s_fLastPath = file;
 			}
 		}
@@ -123,16 +130,13 @@ public class UIFileChooser
 	 * @return The chosen target file.
 	 */
 
-	public static File showSaveDialog( Component parentFrame )
-	{
-		JFileChooser fileChooser = new JFileChooser( s_fLastPath );
+	public static File showSaveDialog(Component parentFrame) {
+		JFileChooser fileChooser = new JFileChooser(s_fLastPath);
 
 		File file = null;
-		if( fileChooser.showSaveDialog( parentFrame ) == JFileChooser.APPROVE_OPTION )
-		{
+		if (fileChooser.showSaveDialog(parentFrame) == JFileChooser.APPROVE_OPTION) {
 			file = fileChooser.getSelectedFile();
-			if( file != null )
-			{
+			if (file != null) {
 				s_fLastPath = file;
 			}
 		}
@@ -149,13 +153,12 @@ public class UIFileChooser
 	 * @return The chosen file.
 	 */
 
-	public static File selectFilePathHelper( JTextField textField, Component parent )
-	{
-		File file = showFileOpenDialog( parent );
-		if( file != null && file.isFile() )
-		{
-			String strPath = FileUtils.toSlashPath( file.getPath() );
-			textField.setText( strPath );
+	public static File selectFilePathHelper(JTextField textField,
+			Component parent) {
+		File file = showFileOpenDialog(parent);
+		if (file != null && file.isFile()) {
+			String strPath = FileUtils.toSlashPath(file.getPath());
+			textField.setText(strPath);
 		}
 
 		return file;
@@ -171,12 +174,11 @@ public class UIFileChooser
 	 * @return The chosen file name.
 	 */
 
-	public static File selectFileNameHelper( JTextField textField, Component parent )
-	{
-		File file = showFileOpenDialog( parent );
-		if( file != null && file.isFile() )
-		{
-			textField.setText( file.getName() );
+	public static File selectFileNameHelper(JTextField textField,
+			Component parent) {
+		File file = showFileOpenDialog(parent);
+		if (file != null && file.isFile()) {
+			textField.setText(file.getName());
 		}
 
 		return file;
@@ -192,13 +194,12 @@ public class UIFileChooser
 	 * @return The chosen directory path.
 	 */
 
-	public static File selectDirectoryPathHelper( JTextField textField, Component parent )
-	{
-		File file = showDirectoryOpenDialog( parent );
-		if( file != null && file.isDirectory() )
-		{
-			String strPath = FileUtils.toSlashPath( file.getPath() );
-			textField.setText( strPath );
+	public static File selectDirectoryPathHelper(JTextField textField,
+			Component parent) {
+		File file = showDirectoryOpenDialog(parent);
+		if (file != null && file.isDirectory()) {
+			String strPath = FileUtils.toSlashPath(file.getPath());
+			textField.setText(strPath);
 		}
 
 		return file;

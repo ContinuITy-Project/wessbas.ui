@@ -1,3 +1,19 @@
+/***************************************************************************
+ * Copyright (c) 2016 the WESSBAS project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ***************************************************************************/
+
 package org.fortiss.pmwt.wex.ui;
 
 import java.awt.EventQueue;
@@ -10,13 +26,12 @@ import org.fortiss.pmwt.wex.ui.utils.PCMUtils;
  * Main class for WESSBAS UI.
  */
 
-public class MainUI implements Runnable
-{
+public class MainUI implements Runnable {
 	/**
 	 * Path to project file.
 	 */
 
-	private File	m_fProjectFile	= null;
+	private File m_fProjectFile = null;
 
 	/**
 	 * Constructor.
@@ -25,8 +40,7 @@ public class MainUI implements Runnable
 	 *            Path to project file.
 	 */
 
-	public MainUI( File fProjectFile )
-	{
+	public MainUI(File fProjectFile) {
 		this.m_fProjectFile = fProjectFile;
 	}
 
@@ -37,8 +51,7 @@ public class MainUI implements Runnable
 	 *            Command line arguments. None yet.
 	 */
 
-	public static void main( String args[] )
-	{
+	public static void main(String args[]) {
 		// -- Register factory for ECore
 		PCMUtils.registerFactoryForECore();
 
@@ -46,20 +59,18 @@ public class MainUI implements Runnable
 		File fProjectFile = null;
 
 		// Simple parameter handling -> <project file>
-		if( args != null && args.length >= 1 )
-		{
-			String strValue = args[ 0 ];
+		if (args != null && args.length >= 1) {
+			String strValue = args[0];
 
-			File file = new File( strValue );
-			if( file.exists() && file.isFile() )
-			{
+			File file = new File(strValue);
+			if (file.exists() && file.isFile()) {
 				fProjectFile = file;
 			}
 		}
 
 		// -- Launch UI
-		MainUI main = new MainUI( fProjectFile );
-		EventQueue.invokeLater( main );
+		MainUI main = new MainUI(fProjectFile);
+		EventQueue.invokeLater(main);
 	}
 
 	/**
@@ -67,14 +78,12 @@ public class MainUI implements Runnable
 	 */
 
 	@Override
-	public void run()
-	{
+	public void run() {
 		MainFrame mainFrame = new MainFrame();
-		if( this.m_fProjectFile != null )
-		{
-			mainFrame.openProject( this.m_fProjectFile );
+		if (this.m_fProjectFile != null) {
+			mainFrame.openProject(this.m_fProjectFile);
 		}
 
-		mainFrame.setVisible( true );
+		mainFrame.setVisible(true);
 	}
 }

@@ -1,3 +1,19 @@
+/***************************************************************************
+ * Copyright (c) 2016 the WESSBAS project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ***************************************************************************/
+
 package org.fortiss.pmwt.wex.ui.jobs;
 
 import java.io.File;
@@ -17,32 +33,30 @@ import org.fortiss.pmwt.wex.ui.utils.SerializationUtils;
  * Retrieves state information from a session log.
  */
 
-public class RetrieveStatesFromSessionJob implements IJob< Project >
-{
+public class RetrieveStatesFromSessionJob implements IJob<Project> {
 	/**
 	 * Input session log.
 	 */
 
-	private File		m_fInputInitialSessionFile	= null;
+	private File m_fInputInitialSessionFile = null;
 
 	/**
 	 * Output state filter configuration file.
 	 */
 
-	private File		m_fOutputStateFilterFile	= null;
+	private File m_fOutputStateFilterFile = null;
 
 	/**
 	 * State filter instance.
 	 */
 
-	private StateFilter	m_stateFilter				= null;
+	private StateFilter m_stateFilter = null;
 
 	/**
 	 * Constructor.
 	 */
 
-	public RetrieveStatesFromSessionJob()
-	{
+	public RetrieveStatesFromSessionJob() {
 		this.m_stateFilter = new StateFilter();
 	}
 
@@ -53,13 +67,15 @@ public class RetrieveStatesFromSessionJob implements IJob< Project >
 	 *            Current project.
 	 */
 
-	private void initFiles( Project project )
-	{
+	private void initFiles(Project project) {
 		// -- Output files
-		this.m_fOutputStateFilterFile = project.addFile( Project.TAG_FILE_STATE_FILTER_CONFIGURATION, Project.FILENAME_STATE_FILTER );
+		this.m_fOutputStateFilterFile = project.addFile(
+				Project.TAG_FILE_STATE_FILTER_CONFIGURATION,
+				Project.FILENAME_STATE_FILTER);
 
 		// -- Input files
-		this.m_fInputInitialSessionFile = project.getFile( Project.TAG_FILE_INITIAL_SESSION );
+		this.m_fInputInitialSessionFile = project
+				.getFile(Project.TAG_FILE_INITIAL_SESSION);
 	}
 
 	/**
@@ -67,10 +83,9 @@ public class RetrieveStatesFromSessionJob implements IJob< Project >
 	 */
 
 	@Override
-	public void run( Project project ) throws Exception
-	{
+	public void run(Project project) throws Exception {
 		// -- Set input and output files
-		initFiles( project );
+		initFiles(project);
 
 		// -- Create initial state set
 		createStateFilter(); // IOException, JAXBException
@@ -80,8 +95,7 @@ public class RetrieveStatesFromSessionJob implements IJob< Project >
 	 * @return State filter instance.
 	 */
 
-	public StateFilter getStateFilter()
-	{
+	public StateFilter getStateFilter() {
 		return this.m_stateFilter;
 	}
 
@@ -94,26 +108,25 @@ public class RetrieveStatesFromSessionJob implements IJob< Project >
 	 *             Occurs, if something unexpected happens.
 	 */
 
-	private void createStateFilter() throws IOException, JAXBException
-	{
+	private void createStateFilter() throws IOException, JAXBException {
 		// -- Read states of sessions
-		try( SessionReader reader = new SessionReader(); )
-		{
-			reader.open( this.m_fInputInitialSessionFile );
+		try (SessionReader reader = new SessionReader();) {
+			reader.open(this.m_fInputInitialSessionFile);
 			Session session = null;
-			while( ( session = reader.readSession() ) != null )
-			{
+			while ((session = reader.readSession()) != null) {
 				// Set< State > stateSet = session.getStateSet();
-				List< State > stateList = session.getStateList();
-				for( State state : stateList )
+				List<State> stateList = session.getStateList();
+				for (State state : stateList)
 				// for( State state : stateSet )
 				{
-					this.m_stateFilter.addInitialStateName( state.getName(), false );
+					this.m_stateFilter.addInitialStateName(state.getName(),
+							false);
 				}
 			}
 		}
 
 		// -- Serialize state filter
-		SerializationUtils.serializeToXML( this.m_fOutputStateFilterFile, this.m_stateFilter ); // JAXBException
+		SerializationUtils.serializeToXML(this.m_fOutputStateFilterFile,
+				this.m_stateFilter); // JAXBException
 	}
 }

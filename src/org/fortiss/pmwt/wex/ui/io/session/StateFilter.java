@@ -1,3 +1,19 @@
+/***************************************************************************
+ * Copyright (c) 2016 the WESSBAS project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ***************************************************************************/
+
 package org.fortiss.pmwt.wex.ui.io.session;
 
 import java.util.Arrays;
@@ -15,56 +31,55 @@ import org.fortiss.pmwt.wex.ui.io.session.model.Session;
 import org.fortiss.pmwt.wex.ui.io.session.model.State;
 
 /**
- * Used to filter instances of {@link org.fortiss.pmwt.wex.ui.io.session.model.Session} by state name/ignore list.
+ * Used to filter instances of
+ * {@link org.fortiss.pmwt.wex.ui.io.session.model.Session} by state name/ignore
+ * list.
  */
 
-@XmlRootElement( name = "stateFilter" )
-@XmlAccessorType( XmlAccessType.NONE )
-public class StateFilter
-{
+@XmlRootElement(name = "stateFilter")
+@XmlAccessorType(XmlAccessType.NONE)
+public class StateFilter {
 	/**
 	 * Map of format: <Old state name,<state instance>>
 	 */
 
-	@XmlElement( name = "stateMap" )
-	private Map< String, StateFilter.CState >	stateMap							= null;
+	@XmlElement(name = "stateMap")
+	private Map<String, StateFilter.CState> stateMap = null;
 
 	/**
 	 * Session must start with state name.
 	 */
 
-	@XmlAttribute( name = "mustStartWithUseCase" )
-	private String								m_strSessionMustStartWithUseCase	= null;
+	@XmlAttribute(name = "mustStartWithUseCase")
+	private String m_strSessionMustStartWithUseCase = null;
 
 	/**
 	 * Session must end with state name.
 	 */
 
-	@XmlAttribute( name = "mustEndWithUseCase" )
-	private String								m_strSessionMustEndWithUseCase		= null;
+	@XmlAttribute(name = "mustEndWithUseCase")
+	private String m_strSessionMustEndWithUseCase = null;
 
 	/**
 	 * Transition threshold time (in ms).
 	 */
 
-	@XmlAttribute( name = "transitionThresholdTime" )
-	private Long								m_lTransitionThresholdTime			= null;
+	@XmlAttribute(name = "transitionThresholdTime")
+	private Long m_lTransitionThresholdTime = null;
 
 	/**
 	 * Constructor.
 	 */
 
-	public StateFilter()
-	{
-		this.stateMap = new HashMap< String, StateFilter.CState >();
+	public StateFilter() {
+		this.stateMap = new HashMap<String, StateFilter.CState>();
 	}
 
 	/**
 	 * @return Map of format: <Old state name,<state instance>>
 	 */
 
-	public Map< String, StateFilter.CState > getStateMap()
-	{
+	public Map<String, StateFilter.CState> getStateMap() {
 		return this.stateMap;
 	}
 
@@ -76,9 +91,8 @@ public class StateFilter
 	 * @return New/Modified state name for the provided old state name.
 	 */
 
-	public String getNewStateNameByOldStateName( String strOldStateName )
-	{
-		StateFilter.CState state = this.stateMap.get( strOldStateName );
+	public String getNewStateNameByOldStateName(String strOldStateName) {
+		StateFilter.CState state = this.stateMap.get(strOldStateName);
 		return state != null ? state.getNewStateName() : null;
 	}
 
@@ -88,17 +102,20 @@ public class StateFilter
 	 * @param strInitialStateName
 	 *            Old state name to be used as a key.
 	 * @param bUseNullValueAsMapping
-	 *            When true, null will be used as the new/modified state name, otherwise the old state name will also be set as the new/modified state
-	 *            name.
+	 *            When true, null will be used as the new/modified state name,
+	 *            otherwise the old state name will also be set as the
+	 *            new/modified state name.
 	 * @return true if adding the initial state was successful, false otherwise.
 	 */
 
-	public boolean addInitialStateName( String strInitialStateName, boolean bUseNullValueAsMapping )
-	{
-		if( !this.stateMap.containsKey( strInitialStateName ) )
-		{
-			StateFilter.CState state = new StateFilter.CState( strInitialStateName, bUseNullValueAsMapping ? null : removeUnsupportedCharacters( strInitialStateName ), false, false );
-			this.stateMap.put( strInitialStateName, state );
+	public boolean addInitialStateName(String strInitialStateName,
+			boolean bUseNullValueAsMapping) {
+		if (!this.stateMap.containsKey(strInitialStateName)) {
+			StateFilter.CState state = new StateFilter.CState(
+					strInitialStateName, bUseNullValueAsMapping ? null
+							: removeUnsupportedCharacters(strInitialStateName),
+					false, false);
+			this.stateMap.put(strInitialStateName, state);
 
 			return true;
 		}
@@ -113,15 +130,15 @@ public class StateFilter
 	 *            Old state name to look for.
 	 * @param strNewStateName
 	 *            New/Modified state name to set.
-	 * @return true if setting the new/modified state name was successful, false otherwise.
+	 * @return true if setting the new/modified state name was successful, false
+	 *         otherwise.
 	 */
 
-	public boolean setNewStateName( String strOldStateName, String strNewStateName )
-	{
-		StateFilter.CState state = this.stateMap.get( strOldStateName );
-		if( state != null )
-		{
-			state.setNewStateName( strNewStateName );
+	public boolean setNewStateName(String strOldStateName,
+			String strNewStateName) {
+		StateFilter.CState state = this.stateMap.get(strOldStateName);
+		if (state != null) {
+			state.setNewStateName(strNewStateName);
 			return true;
 		}
 
@@ -137,12 +154,10 @@ public class StateFilter
 	 *            true will mark the provided state name for removal.
 	 */
 
-	public void markStateForRemoval( String strOldStateName, boolean bRemove )
-	{
-		StateFilter.CState state = this.stateMap.get( strOldStateName );
-		if( state != null )
-		{
-			state.setRemoveState( bRemove );
+	public void markStateForRemoval(String strOldStateName, boolean bRemove) {
+		StateFilter.CState state = this.stateMap.get(strOldStateName);
+		if (state != null) {
+			state.setRemoveState(bRemove);
 		}
 	}
 
@@ -155,12 +170,10 @@ public class StateFilter
 	 *            true will mark the state name as mandatory.
 	 */
 
-	public void markStateForMandatory( String strOldStateName, boolean bMandatory )
-	{
-		StateFilter.CState state = this.stateMap.get( strOldStateName );
-		if( state != null )
-		{
-			state.setMandatoryState( bMandatory );
+	public void markStateForMandatory(String strOldStateName, boolean bMandatory) {
+		StateFilter.CState state = this.stateMap.get(strOldStateName);
+		if (state != null) {
+			state.setMandatoryState(bMandatory);
 		}
 	}
 
@@ -171,8 +184,7 @@ public class StateFilter
 	 *            State name.
 	 */
 
-	public void setSessionMustStartWithUseCase( String strUseCase )
-	{
+	public void setSessionMustStartWithUseCase(String strUseCase) {
 		this.m_strSessionMustStartWithUseCase = strUseCase;
 	}
 
@@ -180,8 +192,7 @@ public class StateFilter
 	 * @return State name the session must start with.
 	 */
 
-	public String getSessionMustStartWithUseCase()
-	{
+	public String getSessionMustStartWithUseCase() {
 		return this.m_strSessionMustStartWithUseCase;
 	}
 
@@ -192,8 +203,7 @@ public class StateFilter
 	 *            State name.
 	 */
 
-	public void setSessionMustEndWithUseCase( String strUseCase )
-	{
+	public void setSessionMustEndWithUseCase(String strUseCase) {
 		this.m_strSessionMustEndWithUseCase = strUseCase;
 	}
 
@@ -204,8 +214,7 @@ public class StateFilter
 	 *            Transition threshold time.
 	 */
 
-	public void setTransitionThresholdTime( Long lTransitionThresholdTime )
-	{
+	public void setTransitionThresholdTime(Long lTransitionThresholdTime) {
 		this.m_lTransitionThresholdTime = lTransitionThresholdTime;
 	}
 
@@ -213,8 +222,7 @@ public class StateFilter
 	 * @return Transition threshold time.
 	 */
 
-	public Long getTransitionThresholdTime()
-	{
+	public Long getTransitionThresholdTime() {
 		return this.m_lTransitionThresholdTime;
 	}
 
@@ -222,8 +230,7 @@ public class StateFilter
 	 * @return State name the session must end with.
 	 */
 
-	public String getSessionMustEndWithUseCase()
-	{
+	public String getSessionMustEndWithUseCase() {
 		return this.m_strSessionMustEndWithUseCase;
 	}
 
@@ -234,16 +241,13 @@ public class StateFilter
 	 *            Current session.
 	 */
 
-	public void replaceStateNamesInSession( Session session )
-	{
-		for( State state : session.getStateList() )
-		{
+	public void replaceStateNamesInSession(Session session) {
+		for (State state : session.getStateList()) {
 			String strOldStateName = state.getName();
-			String strNewStateName = getNewStateNameByOldStateName( strOldStateName );
+			String strNewStateName = getNewStateNameByOldStateName(strOldStateName);
 
-			if( strNewStateName != null )
-			{
-				state.setName( strNewStateName );
+			if (strNewStateName != null) {
+				state.setName(strNewStateName);
 			}
 		}
 	}
@@ -253,15 +257,13 @@ public class StateFilter
 	 * 
 	 * @param strStateName
 	 *            State name to be checked.
-	 * @return true if the state name contains only valid characters, false otherwise.
+	 * @return true if the state name contains only valid characters, false
+	 *         otherwise.
 	 */
 
-	public static boolean isValidStateName( String strStateName )
-	{
-		for( char c : strStateName.toCharArray() )
-		{
-			if( !isSupportedCharacter( c ) )
-			{
+	public static boolean isValidStateName(String strStateName) {
+		for (char c : strStateName.toCharArray()) {
+			if (!isSupportedCharacter(c)) {
 				return false;
 			}
 		}
@@ -274,15 +276,15 @@ public class StateFilter
 	 */
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		StringBuilder sbOut = new StringBuilder();
 
-		Iterator< Map.Entry< String, StateFilter.CState >> iterator = this.stateMap.entrySet().iterator();
-		while( iterator.hasNext() )
-		{
-			Map.Entry< String, StateFilter.CState > mapEntry = iterator.next();
-			sbOut.append( mapEntry.getKey() + " = " + mapEntry.getValue().toString() + "\n" );
+		Iterator<Map.Entry<String, StateFilter.CState>> iterator = this.stateMap
+				.entrySet().iterator();
+		while (iterator.hasNext()) {
+			Map.Entry<String, StateFilter.CState> mapEntry = iterator.next();
+			sbOut.append(mapEntry.getKey() + " = "
+					+ mapEntry.getValue().toString() + "\n");
 		}
 
 		return sbOut.toString();
@@ -296,77 +298,73 @@ public class StateFilter
 	 * @return State name that only contains legal characters.
 	 */
 
-	private String removeUnsupportedCharacters( String strValue )
-	{
-		char[] cValueArray = new char[ strValue.length() ];
-		Arrays.fill( cValueArray, '\0' );
+	private String removeUnsupportedCharacters(String strValue) {
+		char[] cValueArray = new char[strValue.length()];
+		Arrays.fill(cValueArray, '\0');
 
 		int nIndex = 0;
-		for( char c : strValue.toCharArray() )
-		{
-			if( isSupportedCharacter( c ) )
-			{
-				cValueArray[ nIndex++ ] = c;
+		for (char c : strValue.toCharArray()) {
+			if (isSupportedCharacter(c)) {
+				cValueArray[nIndex++] = c;
 			}
 		}
 
-		return new String( cValueArray, 0, nIndex );
+		return new String(cValueArray, 0, nIndex);
 	}
 
 	/**
-	 * Checks if a certain character is legal. Legal characters are: [a-zA-Z0-9_]
+	 * Checks if a certain character is legal. Legal characters are:
+	 * [a-zA-Z0-9_]
 	 * 
 	 * @param c
 	 *            Character to be checked.
 	 * @return true if the character is legal, false otherwise.
 	 */
 
-	private static boolean isSupportedCharacter( char c )
-	{
+	private static boolean isSupportedCharacter(char c) {
 		// a = 97
 		// z = 122
 		// A = 65
 		// Z = 90
 		// _ = 95
 
-		return ( c >= 97 && c <= 122 ) || ( c >= 65 && c <= 90 ) || ( c == 95 );
+		return (c >= 97 && c <= 122) || (c >= 65 && c <= 90) || (c == 95);
 	}
 
 	/**
 	 * Class that represents a state.
 	 */
 
-	@XmlRootElement( name = "state" )
-	@XmlAccessorType( XmlAccessType.NONE )
-	public static final class CState
-	{
+	@XmlRootElement(name = "state")
+	@XmlAccessorType(XmlAccessType.NONE)
+	public static final class CState {
 		/**
 		 * New/Modified state name.
 		 */
 
-		@XmlAttribute( name = "newStateName" )
-		private String	newStateName	= null;
+		@XmlAttribute(name = "newStateName")
+		private String newStateName = null;
 
 		/**
 		 * Old state name.
 		 */
 
-		@XmlAttribute( name = "oldStateName" )
-		private String	oldStateName	= null;
+		@XmlAttribute(name = "oldStateName")
+		private String oldStateName = null;
 
 		/**
 		 * State marked for removal?
 		 */
 
-		@XmlAttribute( name = "removeState" )
-		private boolean	removeState		= false;
+		@XmlAttribute(name = "removeState")
+		private boolean removeState = false;
 
 		/**
 		 * Must be contained in session
 		 */
 
-		@XmlAttribute( name = "mandatoryState" )
-		private boolean	mandatoryState	= false;
+		@XmlAttribute(name = "mandatoryState")
+		private boolean mandatoryState = false;
 
 		/**
 		 * Constructor.
@@ -379,8 +377,8 @@ public class StateFilter
 		 *            State marked for removal?
 		 */
 
-		public CState( String newStateName, String oldStateName, boolean removeState, boolean mandatoryState )
-		{
+		public CState(String newStateName, String oldStateName,
+				boolean removeState, boolean mandatoryState) {
 			this.newStateName = newStateName;
 			this.oldStateName = oldStateName;
 			this.removeState = removeState;
@@ -391,9 +389,8 @@ public class StateFilter
 		 * Constructor.
 		 */
 
-		@SuppressWarnings( "unused" )
-		private CState()
-		{
+		@SuppressWarnings("unused")
+		private CState() {
 			// -- XML Serialization
 		}
 
@@ -401,8 +398,7 @@ public class StateFilter
 		 * @return New/Modified state name.
 		 */
 
-		public String getNewStateName()
-		{
+		public String getNewStateName() {
 			return newStateName;
 		}
 
@@ -413,8 +409,7 @@ public class StateFilter
 		 *            New/Modified state name.
 		 */
 
-		public void setNewStateName( String newStateName )
-		{
+		public void setNewStateName(String newStateName) {
 			this.newStateName = newStateName;
 		}
 
@@ -422,8 +417,7 @@ public class StateFilter
 		 * @return Determines if current state is marked for removal.
 		 */
 
-		public boolean isRemoveState()
-		{
+		public boolean isRemoveState() {
 			return removeState;
 		}
 
@@ -431,11 +425,11 @@ public class StateFilter
 		 * Un/Mark state for removal.
 		 * 
 		 * @param removeState
-		 *            true marks the current state for removal, false unmarks the current state for removal.
+		 *            true marks the current state for removal, false unmarks
+		 *            the current state for removal.
 		 */
 
-		public void setRemoveState( boolean removeState )
-		{
+		public void setRemoveState(boolean removeState) {
 			this.removeState = removeState;
 		}
 
@@ -443,8 +437,7 @@ public class StateFilter
 		 * @return Old state name.
 		 */
 
-		public String getOldStateName()
-		{
+		public String getOldStateName() {
 			return oldStateName;
 		}
 
@@ -455,8 +448,7 @@ public class StateFilter
 		 *            true marks the state as mandatory.
 		 */
 
-		public void setMandatoryState( boolean mandatoryState )
-		{
+		public void setMandatoryState(boolean mandatoryState) {
 			this.mandatoryState = mandatoryState;
 		}
 
@@ -464,8 +456,7 @@ public class StateFilter
 		 * @return true if the state is marked as mandatory, false otherwise.
 		 */
 
-		public boolean isMandatoryState()
-		{
+		public boolean isMandatoryState() {
 			return this.mandatoryState;
 		}
 
@@ -474,9 +465,9 @@ public class StateFilter
 		 */
 
 		@Override
-		public String toString()
-		{
-			return "[" + this.newStateName + " | " + this.oldStateName + " | " + this.removeState + " | " + this.mandatoryState + "]; ";
+		public String toString() {
+			return "[" + this.newStateName + " | " + this.oldStateName + " | "
+					+ this.removeState + " | " + this.mandatoryState + "]; ";
 		}
 	}
 }

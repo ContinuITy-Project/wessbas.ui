@@ -1,3 +1,19 @@
+/***************************************************************************
+ * Copyright (c) 2016 the WESSBAS project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ***************************************************************************/
+
 package org.fortiss.pmwt.wex.ui.implementation;
 
 import java.awt.event.ActionEvent;
@@ -25,55 +41,56 @@ import org.fortiss.pmwt.wex.ui.utils.UIUtils;
  * Time range filter configuration dialog.
  */
 
-public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog implements IJobNotify
-{
+public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog
+		implements IJobNotify {
 	/**
 	 * Serialization.
 	 */
 
-	private static final long				serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Format for all dates presented in the UI.
 	 */
 
-	private static final SimpleDateFormat	DATE_FORMAT			= new SimpleDateFormat( "yyyy-MM-dd    HH:mm:ss" );
+	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(
+			"yyyy-MM-dd    HH:mm:ss");
 
 	/**
 	 * Left slider value.
 	 */
 
-	private int								m_nLeftSliderValue	= 0;
+	private int m_nLeftSliderValue = 0;
 
 	/**
 	 * Right slider value.
 	 */
 
-	private int								m_nRightSliderValue	= 0;
+	private int m_nRightSliderValue = 0;
 
 	/**
 	 * Max value for both, left and right slider.
 	 */
 
-	private int								m_nMaxSliderValue	= 0;
+	private int m_nMaxSliderValue = 0;
 
 	/**
 	 * First time stamp extracted from the session file.
 	 */
 
-	private Project							m_project			= null;
+	private Project m_project = null;
 
 	/**
 	 * Initialized flag.
 	 */
 
-	private boolean							m_bInitialized		= false;
+	private boolean m_bInitialized = false;
 
 	/**
 	 * Time range filter instance.
 	 */
 
-	private TimeRangeFilter					m_timeRangeFilter	= null;
+	private TimeRangeFilter m_timeRangeFilter = null;
 
 	/**
 	 * Constructor.
@@ -84,9 +101,8 @@ public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog impleme
 	 *            Reference to the frame-wide configuration.
 	 */
 
-	public EditTimeRangeFileDialog( JFrame frameOwner, Project project )
-	{
-		super( frameOwner );
+	public EditTimeRangeFileDialog(JFrame frameOwner, Project project) {
+		super(frameOwner);
 
 		// --
 		this.m_project = project;
@@ -98,28 +114,27 @@ public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog impleme
 	 * Initialize the dialog.
 	 */
 
-	private void init()
-	{
+	private void init() {
 		// -- Disable UI
-		UIUtils.enablePanel( this.pnlCrop, false );
+		UIUtils.enablePanel(this.pnlCrop, false);
 
 		// -- Load time range filter
 		TimeRangeFilter timeRangeFilter = null;
-		try
-		{
-			File fInputTimeRangeFilterFile = this.m_project.getFile( Project.TAG_FILE_TIME_RANGE_FILTER_CONFIGURATION );
-			timeRangeFilter = this.m_timeRangeFilter = TimeRangeFilter.read( fInputTimeRangeFilterFile );
-		}
-		catch( JAXBException e )
-		{
+		try {
+			File fInputTimeRangeFilterFile = this.m_project
+					.getFile(Project.TAG_FILE_TIME_RANGE_FILTER_CONFIGURATION);
+			timeRangeFilter = this.m_timeRangeFilter = TimeRangeFilter
+					.read(fInputTimeRangeFilterFile);
+		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
 
 		// -- Set UI values
-		if( timeRangeFilter != null )
-		{
-			this.txtCropMinutesFromTheLeft.setText( this.m_timeRangeFilter.getCropMinutesFromTheLeft() + "" );
-			this.txtCropMinutesFromTheRight.setText( this.m_timeRangeFilter.getCropMinutesFromTheRight() + "" );
+		if (timeRangeFilter != null) {
+			this.txtCropMinutesFromTheLeft.setText(this.m_timeRangeFilter
+					.getCropMinutesFromTheLeft() + "");
+			this.txtCropMinutesFromTheRight.setText(this.m_timeRangeFilter
+					.getCropMinutesFromTheRight() + "");
 		}
 	}
 
@@ -131,9 +146,9 @@ public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog impleme
 	 * @return String that represents the date.
 	 */
 
-	private String toDateString( Long lValue )
-	{
-		return lValue != null ? DATE_FORMAT.format( new Date( lValue.longValue() ) ) : "-";
+	private String toDateString(Long lValue) {
+		return lValue != null ? DATE_FORMAT
+				.format(new Date(lValue.longValue())) : "-";
 	}
 
 	/**
@@ -146,13 +161,12 @@ public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog impleme
 	 * @return Value of the slider or 0 if the slider is still adjusting.
 	 */
 
-	private int handleSlider( ChangeEvent changeEvent, JTextField textField )
-	{
-		JSlider slider = (JSlider)changeEvent.getSource();
-		if( !slider.getValueIsAdjusting() )
-		{
+	private int handleSlider(ChangeEvent changeEvent, JTextField textField) {
+		JSlider slider = (JSlider) changeEvent.getSource();
+		if (!slider.getValueIsAdjusting()) {
 			int nValue = slider.getValue();
-			textField.setText( NumberUtils.toPercent( nValue, this.m_nMaxSliderValue ) + " " + nValue + " min" );
+			textField.setText(NumberUtils.toPercent(nValue,
+					this.m_nMaxSliderValue) + " " + nValue + " min");
 
 			return nValue;
 		}
@@ -164,58 +178,57 @@ public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog impleme
 	 * Handles everything that is related to both sliders.
 	 */
 
-	private void handleSliderValues()
-	{
-		if( this.m_bInitialized )
-		{
-			this.txtCropMinutesFromTheLeft.setText( this.sliRemoveFromTheLeft.getValue() + "" );
-			this.txtCropMinutesFromTheRight.setText( this.sliRemoveFromTheRight.getValue() + "" );
+	private void handleSliderValues() {
+		if (this.m_bInitialized) {
+			this.txtCropMinutesFromTheLeft.setText(this.sliRemoveFromTheLeft
+					.getValue() + "");
+			this.txtCropMinutesFromTheRight.setText(this.sliRemoveFromTheRight
+					.getValue() + "");
 		}
 	}
 
 	@Override
-	protected void btnAnalyzeActionPerformed( ActionEvent actionEvent )
-	{
+	protected void btnAnalyzeActionPerformed(ActionEvent actionEvent) {
 		// -- Disable UI
-		enableComponents( false );
+		enableComponents(false);
 
 		// -- Create new state filter configuration
-		JobManager.schedule( new RetrieveTimesFromSessionJob(), this.m_project, 0, this );
+		JobManager.schedule(new RetrieveTimesFromSessionJob(), this.m_project,
+				0, this);
 	}
 
 	@Override
-	protected void btnSaveActionPerformed( ActionEvent evt )
-	{
+	protected void btnSaveActionPerformed(ActionEvent evt) {
 		// -- Validate
-		if( this.m_nLeftSliderValue + this.m_nRightSliderValue > this.m_nMaxSliderValue )
-		{
-			JOptionPane.showMessageDialog( this, "Illegal range", "Error", JOptionPane.ERROR_MESSAGE );
+		if (this.m_nLeftSliderValue + this.m_nRightSliderValue > this.m_nMaxSliderValue) {
+			JOptionPane.showMessageDialog(this, "Illegal range", "Error",
+					JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 
 		// -- Store time range filter
-		int nCropMinutesFromTheLeft = NumberUtils.stringToInt( this.txtCropMinutesFromTheLeft.getText(), 0 );
-		int nCropMinutesFromTheRight = NumberUtils.stringToInt( this.txtCropMinutesFromTheRight.getText(), 0 );
+		int nCropMinutesFromTheLeft = NumberUtils.stringToInt(
+				this.txtCropMinutesFromTheLeft.getText(), 0);
+		int nCropMinutesFromTheRight = NumberUtils.stringToInt(
+				this.txtCropMinutesFromTheRight.getText(), 0);
 
-		this.m_timeRangeFilter = new TimeRangeFilter( nCropMinutesFromTheLeft, nCropMinutesFromTheRight );
+		this.m_timeRangeFilter = new TimeRangeFilter(nCropMinutesFromTheLeft,
+				nCropMinutesFromTheRight);
 
-		File fOutputTimeRangeFilterFile = this.m_project.getFile( Project.TAG_FILE_TIME_RANGE_FILTER_CONFIGURATION );
+		File fOutputTimeRangeFilterFile = this.m_project
+				.getFile(Project.TAG_FILE_TIME_RANGE_FILTER_CONFIGURATION);
 
-		try
-		{
-			this.m_timeRangeFilter.write( fOutputTimeRangeFilterFile );
-		}
-		catch( JAXBException e )
-		{
+		try {
+			this.m_timeRangeFilter.write(fOutputTimeRangeFilterFile);
+		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	protected void btnSaveAndCloseActionPerformed( ActionEvent evt )
-	{
-		btnSaveActionPerformed( null );
-		setVisible( false );
+	protected void btnSaveAndCloseActionPerformed(ActionEvent evt) {
+		btnSaveActionPerformed(null);
+		setVisible(false);
 	}
 
 	/**
@@ -223,9 +236,9 @@ public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog impleme
 	 */
 
 	@Override
-	protected void sliRemoveFromTheRightStateChanged( ChangeEvent changeEvent )
-	{
-		this.m_nRightSliderValue = handleSlider( changeEvent, this.txtRemoveFromTheRight );
+	protected void sliRemoveFromTheRightStateChanged(ChangeEvent changeEvent) {
+		this.m_nRightSliderValue = handleSlider(changeEvent,
+				this.txtRemoveFromTheRight);
 		handleSliderValues();
 	}
 
@@ -234,9 +247,9 @@ public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog impleme
 	 */
 
 	@Override
-	protected void sliRemoveFromTheLeftStateChanged( ChangeEvent changeEvent )
-	{
-		this.m_nLeftSliderValue = handleSlider( changeEvent, this.txtRemoveFromTheLeft );
+	protected void sliRemoveFromTheLeftStateChanged(ChangeEvent changeEvent) {
+		this.m_nLeftSliderValue = handleSlider(changeEvent,
+				this.txtRemoveFromTheLeft);
 		handleSliderValues();
 	}
 
@@ -245,37 +258,34 @@ public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog impleme
 	 */
 
 	@Override
-	public void jobNotify( int nID, int nReturnType, Object objValue )
-	{
-		if( nReturnType == JobManager.OK )
-		{
-			RetrieveTimesFromSessionJob job = (RetrieveTimesFromSessionJob)objValue;
+	public void jobNotify(int nID, int nReturnType, Object objValue) {
+		if (nReturnType == JobManager.OK) {
+			RetrieveTimesFromSessionJob job = (RetrieveTimesFromSessionJob) objValue;
 
 			// -- Set values
 			long lFirstSessionTime = job.getFirstSessionStartTime();
 			long lLastSessionTime = job.getLastSessionStopTime();
-			int nDataDurationInMinutes = (int)toMinutes( job.getLastSessionStopTime() - job.getFirstSessionStartTime() );
+			int nDataDurationInMinutes = (int) toMinutes(job
+					.getLastSessionStopTime() - job.getFirstSessionStartTime());
 
 			// -- Sliders
-			this.m_nMaxSliderValue = (int)nDataDurationInMinutes;
-			initSliders( this.m_nMaxSliderValue );
+			this.m_nMaxSliderValue = (int) nDataDurationInMinutes;
+			initSliders(this.m_nMaxSliderValue);
 
 			// -- Update UI
-			this.txtTimestampFrom.setText( toDateString( lFirstSessionTime ) );
-			this.txtTimestampTo.setText( toDateString( lLastSessionTime ) );
-			this.txtTimestampCount.setText( nDataDurationInMinutes + " min" );
+			this.txtTimestampFrom.setText(toDateString(lFirstSessionTime));
+			this.txtTimestampTo.setText(toDateString(lLastSessionTime));
+			this.txtTimestampCount.setText(nDataDurationInMinutes + " min");
 
 			// -- Set initialized flag
 			this.m_bInitialized = true;
-		}
-		else
-		{
-			Exception e = (Exception)objValue;
+		} else {
+			Exception e = (Exception) objValue;
 			e.printStackTrace();
 		}
 
 		// -- Enable UI
-		enableComponents( true );
+		enableComponents(true);
 	}
 
 	/**
@@ -285,9 +295,8 @@ public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog impleme
 	 *            Enable/Disable switch.
 	 */
 
-	private void enableComponents( boolean bEnable )
-	{
-		UIUtils.enableContainer( this, bEnable );
+	private void enableComponents(boolean bEnable) {
+		UIUtils.enableContainer(this, bEnable);
 	}
 
 	/**
@@ -297,15 +306,14 @@ public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog impleme
 	 *            Max value for sliders.
 	 */
 
-	private void initSliders( int nMaxSliderValue )
-	{
-		this.sliRemoveFromTheLeft.setMinimum( 0 );
-		this.sliRemoveFromTheLeft.setMaximum( nMaxSliderValue );
-		this.sliRemoveFromTheLeft.setValue( 0 );
+	private void initSliders(int nMaxSliderValue) {
+		this.sliRemoveFromTheLeft.setMinimum(0);
+		this.sliRemoveFromTheLeft.setMaximum(nMaxSliderValue);
+		this.sliRemoveFromTheLeft.setValue(0);
 
-		this.sliRemoveFromTheRight.setMinimum( 0 );
-		this.sliRemoveFromTheRight.setMaximum( nMaxSliderValue );
-		this.sliRemoveFromTheRight.setValue( 0 );
+		this.sliRemoveFromTheRight.setMinimum(0);
+		this.sliRemoveFromTheRight.setMaximum(nMaxSliderValue);
+		this.sliRemoveFromTheRight.setValue(0);
 	}
 
 	/**
@@ -316,8 +324,7 @@ public class EditTimeRangeFileDialog extends BaseEditTimeRangeFileDialog impleme
 	 * @return Representation of the milliseconds as seconds.
 	 */
 
-	private static long toMinutes( long lValue )
-	{
-		return (int)( ( lValue / ( 1000 * 60 ) ) % 60 );
+	private static long toMinutes(long lValue) {
+		return (int) ((lValue / (1000 * 60)) % 60);
 	}
 }
