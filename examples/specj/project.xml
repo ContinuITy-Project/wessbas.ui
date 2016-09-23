@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project projectDirectory="C:\Users\voegele\Applications\eclipse-modeling-juno-SR2-win32-x86_64\eclipse\workspace\wessbas.ui\examples\specj" projectFile="C:\Users\voegele\Applications\eclipse-modeling-juno-SR2-win32-x86_64\eclipse\workspace\wessbas.ui\examples\specj\project.xml">
+    <map>
+        <entry>
+            <key>file.configuration.timeRangeFilter</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:\Users\voegele\Applications\eclipse-modeling-juno-SR2-win32-x86_64\eclipse\workspace\wessbas.ui\examples\specj\time_range_filter.xml</value>
+        </entry>
+        <entry>
+            <key>file.testplan</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:/Users/voegele/Applications/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/workspace/wessbas.ui/examples/specj/testplan.jmx</value>
+        </entry>
+        <entry>
+            <key>file.configuration.genericReader</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:\Users\voegele\Applications\eclipse-modeling-juno-SR2-win32-x86_64\eclipse\workspace\wessbas.ui\examples\specj\cfg_generic_reader.xml</value>
+        </entry>
+        <entry>
+            <key>file.configuration.workalod</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:\Users\voegele\Applications\eclipse-modeling-juno-SR2-win32-x86_64\eclipse\workspace\wessbas.ui\examples\specj\workloadIntensity.properties</value>
+        </entry>
+        <entry>
+            <key>file.configuration.stateFilter</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:\Users\voegele\Applications\eclipse-modeling-juno-SR2-win32-x86_64\eclipse\workspace\wessbas.ui\examples\specj\state_filter.xml</value>
+        </entry>
+        <entry>
+            <key>file.configuration.transformation</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:\Users\voegele\Applications\eclipse-modeling-juno-SR2-win32-x86_64\eclipse\workspace\wessbas.ui\examples\specj\transformation.properties</value>
+        </entry>
+        <entry>
+            <key>file.useCases</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:/Users/voegele/Applications/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/workspace/wessbas.ui/examples/specj/usecases.txt</value>
+        </entry>
+        <entry>
+            <key>file.session.final</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:/Users/voegele/Applications/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/workspace/wessbas.ui/examples/specj/session_final.txt</value>
+        </entry>
+        <entry>
+            <key>file.configuration.wessbas2pcm</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:\Users\voegele\Applications\eclipse-modeling-juno-SR2-win32-x86_64\eclipse\workspace\wessbas.ui\examples\specj\wessbas2pcm.properties</value>
+        </entry>
+        <entry>
+            <key>file.behaviorMix</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:/Users/voegele/Applications/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/workspace/wessbas.ui/examples/specj/behaviormix.txt</value>
+        </entry>
+        <entry>
+            <key>value.session.timestamp.first</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:long">1441634434000</value>
+        </entry>
+        <entry>
+            <key>file.graph</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:/Users/voegele/Applications/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/workspace/wessbas.ui/examples/specj/graph.dot</value>
+        </entry>
+        <entry>
+            <key>file.session.initial</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:/Users/voegele/Applications/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/workspace/wessbas.ui/examples/specj/session_initial.txt</value>
+        </entry>
+        <entry>
+            <key>file.csv</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:\Users\voegele\Applications\eclipse-modeling-juno-SR2-win32-x86_64\eclipse\workspace\wessbas.ui\examples\specj\access_log.2015-09-07</value>
+        </entry>
+        <entry>
+            <key>file.behaviorModels</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:/Users/voegele/Applications/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/workspace/wessbas.ui/examples/specj/behaviorModels.properties</value>
+        </entry>
+        <entry>
+            <key>file.flows</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:/Users/voegele/Applications/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/workspace/wessbas.ui/examples/specj/usecases.flows</value>
+        </entry>
+        <entry>
+            <key>file.synoptic.log</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:/Users/voegele/Applications/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/workspace/wessbas.ui/examples/specj/synoptic_log.txt</value>
+        </entry>
+        <entry>
+            <key>file.configuration.synoptic</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:/Users/voegele/Applications/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/workspace/wessbas.ui/examples/specj/synoptic.txt</value>
+        </entry>
+        <entry>
+            <key>value.session.timestamp.last</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:long">1441634492013</value>
+        </entry>
+        <entry>
+            <key>file.configuration.testplan</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:\Users\voegele\Applications\eclipse-modeling-juno-SR2-win32-x86_64\eclipse\workspace\wessbas.ui\examples\specj\testplan.default.properties</value>
+        </entry>
+        <entry>
+            <key>file.workloadModelXmi</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">C:/Users/voegele/Applications/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/workspace/wessbas.ui/examples/specj/workloadmodel.xmi</value>
+        </entry>
+    </map>
+</project>

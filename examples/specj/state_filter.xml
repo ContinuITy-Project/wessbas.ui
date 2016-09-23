@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<stateFilter mustStartWithUseCase="" mustEndWithUseCase="" transitionThresholdTime="1800000">
+    <stateMap>
+        <entry>
+            <key>home</key>
+            <value newStateName="home" oldStateName="home" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>remove</key>
+            <value newStateName="remove" oldStateName="remove" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>deferorder</key>
+            <value newStateName="deferorder" oldStateName="deferorder" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>View_Items</key>
+            <value newStateName="View_Items" oldStateName="View_Items" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>clearcart</key>
+            <value newStateName="clearcart" oldStateName="clearcart" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>cancelorder</key>
+            <value newStateName="cancelorder" oldStateName="cancelorder" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>shoppingcart</key>
+            <value newStateName="shoppingcart" oldStateName="shoppingcart" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>cacheTest</key>
+            <value newStateName="cacheTest" oldStateName="cacheTest" removeState="true" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>logout</key>
+            <value newStateName="logout" oldStateName="logout" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>inventory</key>
+            <value newStateName="inventory" oldStateName="inventory" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>login</key>
+            <value newStateName="login" oldStateName="login" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>Add+to+Cart</key>
+            <value newStateName="Add_to_Cartquantity" oldStateName="AddtoCart" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>sellinventory</key>
+            <value newStateName="sellinventory" oldStateName="sellinventory" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>purchasecart</key>
+            <value newStateName="purchasecart" oldStateName="purchasecart" removeState="false" mandatoryState="false"/>
+        </entry>
+        <entry>
+            <key>View_Items_quantity</key>
+            <value newStateName="View_Itemsquantity" oldStateName="View_Items_quantity" removeState="false" mandatoryState="false"/>
+        </entry>
+    </stateMap>
+</stateFilter>

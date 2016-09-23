@@ -1,0 +1,1368 @@
+<?xml version="1.0" encoding="ASCII"?>
+<usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" xmlns:usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+  <usageScenario_UsageModel id="DefaultUsageScenario" entityName="DefaultUsageScenario">
+    <scenarioBehaviour_UsageScenario id="DefaultScenarioBehavior" entityName="DefaultScenarioBehavior">
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_e2OzIIF_EeadsqsShvm9eA" successor="_e2OzIoF_EeadsqsShvm9eA"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_e2OzIYF_EeadsqsShvm9eA"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="_e2OzIoF_EeadsqsShvm9eA" predecessor="_e2OzIIF_EeadsqsShvm9eA">
+        <decisionBranchTransitions_decisionBranch id="_e2OzJIF_EeadsqsShvm9eA" successor="_e2USsIF_EeadsqsShvm9eA" propability="0.3192000000000002"/>
+        <decisionBranchTransitions_decisionBranch id="_e2USsYF_EeadsqsShvm9eA" successor="_e2USsoF_EeadsqsShvm9eA" propability="0.1238"/>
+        <decisionBranchTransitions_decisionBranch id="_e2USs4F_EeadsqsShvm9eA" successor="_e2UStIF_EeadsqsShvm9eA" propability="0.203"/>
+        <decisionBranchTransitions_decisionBranch id="_e2U5wIF_EeadsqsShvm9eA" successor="_e2U5wYF_EeadsqsShvm9eA" propability="0.354"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="_e2OzI4F_EeadsqsShvm9eA" successor="_e2OzIYF_EeadsqsShvm9eA"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:ScenarioBehaviorCall" id="_e2USsIF_EeadsqsShvm9eA" successor="_e2OzI4F_EeadsqsShvm9eA" predecessor="_e2OzIoF_EeadsqsShvm9eA" usageScenarioPartToCall="gen_behavior_model0"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:ScenarioBehaviorCall" id="_e2USsoF_EeadsqsShvm9eA" successor="_e2OzI4F_EeadsqsShvm9eA" predecessor="_e2OzIoF_EeadsqsShvm9eA" usageScenarioPartToCall="gen_behavior_model1"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:ScenarioBehaviorCall" id="_e2UStIF_EeadsqsShvm9eA" successor="_e2OzI4F_EeadsqsShvm9eA" predecessor="_e2OzIoF_EeadsqsShvm9eA" usageScenarioPartToCall="gen_behavior_model2"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:ScenarioBehaviorCall" id="_e2U5wYF_EeadsqsShvm9eA" successor="_e2OzI4F_EeadsqsShvm9eA" predecessor="_e2OzIoF_EeadsqsShvm9eA" usageScenarioPartToCall="gen_behavior_model3"/>
+    </scenarioBehaviour_UsageScenario>
+    <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload" population="702">
+      <thinkTime_ClosedWorkload specification="0"/>
+    </workload_UsageScenario>
+  </usageScenario_UsageModel>
+  <usageScenarioPart_UsageModel id="gen_behavior_model0" entityName="gen_behavior_model0">
+    <variableContainer_usageScenario>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="remove"/>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="clearcart"/>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="cancelorder"/>
+    </variableContainer_usageScenario>
+    <scenarioBehaviour_UsageScenario id="id_usp_sb_gen_behavior_model0" entityName="usp_sb_gen_behavior_model0">
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId14_sellinventory" successor="id_db_85881" predecessor="id_mb_163972">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5ApGkEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_sellinventory&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId5_cancelorder_to_MSId9_inventory" entityName="ve_MSId5_cancelorder_to_MSId9_inventory" successor="id_mb_34195" predecessor="MSId5_cancelorder_to_MSId9_inventory">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.0/@variableContainer_usageScenario/@variableDefinitions_variableContainer.2" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="MSId1" predecessor="id_mb_993566"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_163972" successor="MSId14_sellinventory"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="id_start_258747" successor="MSId10_login"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId9_inventory_to_MSId14_sellinventory" entityName="inventory_to_sellinventory" successor="id_mb_163972" predecessor="id_db_600111">
+        <timeSpecification_Delay specification="Norm(2301.0 , 25.787593916455254 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId10_login" successor="MSId10_login_to_MSId9_inventory" predecessor="id_start_258747">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5A8okEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_login&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId9_inventory_to_MSId5_cancelorder" entityName="ve_MSId9_inventory_to_MSId5_cancelorder" successor="MSId5_cancelorder" predecessor="MSId9_inventory_to_MSId5_cancelorder">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.0/@variableContainer_usageScenario/@variableDefinitions_variableContainer.2" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_993566" successor="MSId1"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_221682" predecessor="MSId8_home">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId8_home_to_MSId1_213542" successor="id_mb_993566" propability="0.1172"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId8_home_to_MSId11_logout_247506" successor="MSId8_home_to_MSId11_logout" propability="0.8828"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_85881" predecessor="MSId14_sellinventory">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId14_sellinventory_to_MSId8_home_929296" successor="MSId14_sellinventory_to_MSId8_home" propability="0.1795"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId14_sellinventory_to_MSId11_logout_943251" successor="id_mb_826488" propability="4.0E-4"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId14_sellinventory_to_MSId14_sellinventory_155706" successor="MSId14_sellinventory_to_MSId14_sellinventory" propability="0.7302"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId14_sellinventory_to_MSId1_598768" successor="id_mb_993566" propability="0.0899"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId11_logout" successor="id_mb_993566" predecessor="id_mb_826488">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BEkYEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_logout&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId9_inventory" successor="id_db_600111" predecessor="id_mb_34195">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BPjgEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_inventory&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId9_inventory_to_MSId9_inventory" entityName="inventory_to_inventory" successor="id_mb_34195" predecessor="id_db_600111">
+        <timeSpecification_Delay specification="Norm(2031.0 , 27.27636339397171 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId14_sellinventory_to_MSId14_sellinventory" entityName="sellinventory_to_sellinventory" successor="id_mb_163972" predecessor="id_db_85881">
+        <timeSpecification_Delay specification="Norm(4083.0 , 30.430248109405877 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId10_login_to_MSId9_inventory" entityName="login_to_inventory" successor="id_mb_34195" predecessor="MSId10_login">
+        <timeSpecification_Delay specification="Norm(2769.0 , 27.386127875258307 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_600111" predecessor="MSId9_inventory">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId9_inventory_to_MSId14_sellinventory_978322" successor="MSId9_inventory_to_MSId14_sellinventory" propability="0.4806"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId9_inventory_to_MSId9_inventory_907785" successor="MSId9_inventory_to_MSId9_inventory" propability="0.4839"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId9_inventory_to_MSId5_cancelorder_85959" successor="MSId9_inventory_to_MSId5_cancelorder" propability="0.0161" expression=" ( $cancelorder$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId9_inventory_to_MSId1_595429" successor="id_mb_993566" propability="0.0194"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_826488" successor="MSId11_logout"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId14_sellinventory_to_MSId8_home" entityName="sellinventory_to_home" successor="MSId8_home" predecessor="id_db_85881">
+        <timeSpecification_Delay specification="Norm(3992.0 , 27.16615541441225 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_34195" successor="MSId9_inventory"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId5_cancelorder" successor="MSId5_cancelorder_to_MSId9_inventory" predecessor="id_ve_MSId9_inventory_to_MSId5_cancelorder">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BIOwEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId5_cancelorder_to_MSId9_inventory" entityName="cancelorder_to_inventory" successor="id_ve_MSId5_cancelorder_to_MSId9_inventory" predecessor="MSId5_cancelorder">
+        <timeSpecification_Delay specification="Norm(3304.0 , 24.145392935299274 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId8_home_to_MSId11_logout" entityName="home_to_logout" successor="id_mb_826488" predecessor="id_db_221682">
+        <timeSpecification_Delay specification="Norm(3954.0 , 29.376861643136763 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId8_home" successor="id_db_221682" predecessor="MSId14_sellinventory_to_MSId8_home">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BBhEEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_home&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId9_inventory_to_MSId5_cancelorder" entityName="inventory_to_cancelorder" successor="id_ve_MSId9_inventory_to_MSId5_cancelorder" predecessor="id_db_600111">
+        <timeSpecification_Delay specification="Norm(2301.0 , 24.596747752497688 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenarioPart_UsageModel>
+  <usageScenarioPart_UsageModel id="gen_behavior_model1" entityName="gen_behavior_model1">
+    <variableContainer_usageScenario>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="remove"/>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="clearcart"/>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="cancelorder"/>
+    </variableContainer_usageScenario>
+    <scenarioBehaviour_UsageScenario id="id_usp_sb_gen_behavior_model1" entityName="usp_sb_gen_behavior_model1">
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId29_sellinventory_to_MSId23_home" entityName="sellinventory_to_home" successor="MSId23_home" predecessor="id_db_487140">
+        <timeSpecification_Delay specification="Norm(3871.0 , 29.0516780926679 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="MSId16" predecessor="MSId26_logout"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId24_inventory_to_MSId20_cancelorder" entityName="inventory_to_cancelorder" successor="id_ve_MSId24_inventory_to_MSId20_cancelorder" predecessor="id_db_584558">
+        <timeSpecification_Delay specification="Norm(2495.0 , 22.360679774997898 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId23_home_to_MSId26_logout" entityName="home_to_logout" successor="MSId26_logout" predecessor="MSId23_home">
+        <timeSpecification_Delay specification="Norm(4038.0 , 26.267851073127396 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_514212" successor="MSId29_sellinventory"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId24_inventory_to_MSId24_inventory" entityName="inventory_to_inventory" successor="id_mb_938389" predecessor="id_db_584558">
+        <timeSpecification_Delay specification="Norm(1695.0 , 21.400934559032695 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId23_home" successor="MSId23_home_to_MSId26_logout" predecessor="MSId29_sellinventory_to_MSId23_home">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BBhEEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_home&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_584558" predecessor="MSId24_inventory">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId24_inventory_to_MSId24_inventory_926897" successor="MSId24_inventory_to_MSId24_inventory" propability="0.3603"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId24_inventory_to_MSId29_sellinventory_155408" successor="MSId24_inventory_to_MSId29_sellinventory" propability="0.625"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId24_inventory_to_MSId20_cancelorder_523624" successor="MSId24_inventory_to_MSId20_cancelorder" propability="0.0147" expression=" ( $cancelorder$ == false) "/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId24_inventory_to_MSId20_cancelorder" entityName="ve_MSId24_inventory_to_MSId20_cancelorder" successor="MSId20_cancelorder" predecessor="MSId24_inventory_to_MSId20_cancelorder">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.1/@variableContainer_usageScenario/@variableDefinitions_variableContainer.2" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId24_inventory_to_MSId29_sellinventory" entityName="inventory_to_sellinventory" successor="id_mb_514212" predecessor="id_db_584558">
+        <timeSpecification_Delay specification="Norm(2457.0 , 22.315913604421397 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId20_cancelorder" successor="MSId20_cancelorder_to_MSId24_inventory" predecessor="id_ve_MSId24_inventory_to_MSId20_cancelorder">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BIOwEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId26_logout" successor="MSId16" predecessor="MSId23_home_to_MSId26_logout">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BEkYEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_logout&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="id_start_846656" successor="id_db_443014"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_443014" predecessor="id_start_846656">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId18_INITIAL_to_MSId29_sellinventory_137442" successor="id_mb_514212" propability="0.7167"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId18_INITIAL_to_MSId24_inventory_561683" successor="id_mb_938389" propability="0.2833"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_487140" predecessor="MSId29_sellinventory">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId29_sellinventory_to_MSId23_home_137118" successor="MSId29_sellinventory_to_MSId23_home" propability="0.3061"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId29_sellinventory_to_MSId29_sellinventory_634824" successor="MSId29_sellinventory_to_MSId29_sellinventory" propability="0.6939"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId29_sellinventory" successor="id_db_487140" predecessor="id_mb_514212">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5ApGkEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_sellinventory&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId20_cancelorder_to_MSId24_inventory" entityName="ve_MSId20_cancelorder_to_MSId24_inventory" successor="id_mb_938389" predecessor="MSId20_cancelorder_to_MSId24_inventory">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.1/@variableContainer_usageScenario/@variableDefinitions_variableContainer.2" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId29_sellinventory_to_MSId29_sellinventory" entityName="sellinventory_to_sellinventory" successor="id_mb_514212" predecessor="id_db_487140">
+        <timeSpecification_Delay specification="Norm(3940.0 , 27.982137159266443 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId20_cancelorder_to_MSId24_inventory" entityName="cancelorder_to_inventory" successor="id_ve_MSId20_cancelorder_to_MSId24_inventory" predecessor="MSId20_cancelorder">
+        <timeSpecification_Delay specification="Norm(3493.0 , 22.360679774997898 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_938389" successor="MSId24_inventory"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId24_inventory" successor="id_db_584558" predecessor="id_mb_938389">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BPjgEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_inventory&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenarioPart_UsageModel>
+  <usageScenarioPart_UsageModel id="gen_behavior_model2" entityName="gen_behavior_model2">
+    <variableContainer_usageScenario>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="remove"/>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="clearcart"/>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="cancelorder"/>
+    </variableContainer_usageScenario>
+    <scenarioBehaviour_UsageScenario id="id_usp_sb_gen_behavior_model2" entityName="usp_sb_gen_behavior_model2">
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId36_clearcart_to_MSId34_View_Items" entityName="clearcart_to_View_Items" successor="id_ve_MSId36_clearcart_to_MSId34_View_Items" predecessor="id_db_894650">
+        <timeSpecification_Delay specification="Norm(1199.0 , 27.349588662354687 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_665929" successor="MSId32_Add_to_Cartquantity"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_660998" successor="MSId36_clearcart"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_363979" successor="MSId34_View_Items"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="id_start_243950" successor="id_db_546621"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_339435" predecessor="MSId37_deferorder">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId37_deferorder_to_MSId38_home_92378" successor="MSId37_deferorder_to_MSId38_home" propability="0.9316"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId37_deferorder_to_MSId31_156610" successor="id_mb_639353" propability="0.0684"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId45_shoppingcart" successor="id_db_739885" predecessor="id_mb_798799">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5Ay3kEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_shoppingcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId32_Add_to_Cartquantity_to_MSId45_shoppingcart" entityName="Add_to_Cartquantity_to_shoppingcart" successor="id_mb_798799" predecessor="id_db_394402">
+        <timeSpecification_Delay specification="Norm(3919.0 , 27.0 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_57542" predecessor="MSId34_View_Items">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId34_View_Items_to_MSId38_home_566811" successor="MSId34_View_Items_to_MSId38_home" propability="0.0508"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId34_View_Items_to_MSId34_View_Items_557681" successor="MSId34_View_Items_to_MSId34_View_Items" propability="0.6603" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId34_View_Items_to_MSId32_Add_to_Cartquantity_345467" successor="MSId34_View_Items_to_MSId32_Add_to_Cartquantity" propability="0.285" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId34_View_Items_to_MSId31_6791" successor="id_mb_639353" propability="0.0039"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId34_View_Items" successor="id_db_57542" predecessor="id_mb_363979">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BOVYEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_View_Items&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_686864" successor="MSId38_home"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId42_purchasecart_to_MSId38_home" entityName="purchasecart_to_home" successor="id_mb_686864" predecessor="id_db_554796">
+        <timeSpecification_Delay specification="Norm(2538.0 , 22.315913604421397 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_894650" predecessor="MSId36_clearcart">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId36_clearcart_to_MSId34_View_Items_90168" successor="MSId36_clearcart_to_MSId34_View_Items" propability="0.9876" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId36_clearcart_to_MSId31_974443" successor="id_ve_MSId36_clearcart_to_MSId31" propability="0.0124"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_554796" predecessor="MSId42_purchasecart">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId42_purchasecart_to_MSId38_home_824808" successor="MSId42_purchasecart_to_MSId38_home" propability="0.9333"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId42_purchasecart_to_MSId31_351930" successor="id_mb_639353" propability="0.0667"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_22658" successor="MSId42_purchasecart"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId45_shoppingcart_to_MSId43_remove" entityName="ve_MSId45_shoppingcart_to_MSId43_remove" successor="MSId43_remove" predecessor="MSId45_shoppingcart_to_MSId43_remove">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.2/@variableContainer_usageScenario/@variableDefinitions_variableContainer.0" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="MSId31" predecessor="id_mb_639353"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId40_login" successor="MSId40_login_to_MSId34_View_Items" predecessor="id_db_546621">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5A8okEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_login&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId43_remove_to_MSId42_purchasecart" entityName="ve_MSId43_remove_to_MSId42_purchasecart" successor="id_mb_22658" predecessor="MSId43_remove_to_MSId42_purchasecart">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.2/@variableContainer_usageScenario/@variableDefinitions_variableContainer.0" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId32_Add_to_Cartquantity_to_MSId34_View_Items" entityName="Add_to_Cartquantity_to_View_Items" successor="id_mb_363979" predecessor="id_db_394402">
+        <timeSpecification_Delay specification="Norm(1458.0 , 22.338307903688676 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId45_shoppingcart_to_MSId43_remove" entityName="shoppingcart_to_remove" successor="id_ve_MSId45_shoppingcart_to_MSId43_remove" predecessor="id_db_739885">
+        <timeSpecification_Delay specification="Norm(1499.0 , 22.360679774997898 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_798799" successor="MSId45_shoppingcart"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId37_deferorder" successor="id_db_339435" predecessor="id_mb_93407">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5AWysEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_deferorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_238074" predecessor="MSId38_home">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId38_home_to_MSId41_logout_275372" successor="MSId38_home_to_MSId41_logout" propability="0.9841"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId38_home_to_MSId31_436939" successor="id_mb_639353" propability="0.0159"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_639353" successor="MSId31"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId36_clearcart" successor="id_db_894650" predecessor="id_mb_660998">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5AmqUEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_93407" successor="MSId37_deferorder"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId41_logout" successor="id_mb_639353" predecessor="MSId38_home_to_MSId41_logout">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BEkYEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_logout&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId33_INITIAL_to_MSId36_clearcart" entityName="ve_MSId33_INITIAL_to_MSId36_clearcart" successor="id_mb_660998" predecessor="id_db_546621">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.2/@variableContainer_usageScenario/@variableDefinitions_variableContainer.1" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId43_remove_to_MSId37_deferorder" entityName="ve_MSId43_remove_to_MSId37_deferorder" successor="id_mb_93407" predecessor="MSId43_remove_to_MSId37_deferorder">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.2/@variableContainer_usageScenario/@variableDefinitions_variableContainer.0" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId32_Add_to_Cartquantity" successor="id_db_394402" predecessor="id_mb_665929">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BHAoEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_Add_to_Cartquantity&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId34_View_Items_to_MSId32_Add_to_Cartquantity" entityName="View_Items_to_Add_to_Cartquantity" successor="id_mb_665929" predecessor="id_db_57542">
+        <timeSpecification_Delay specification="Norm(2074.0 , 26.229754097208 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId43_remove_to_MSId45_shoppingcart" entityName="ve_MSId43_remove_to_MSId45_shoppingcart" successor="id_mb_798799" predecessor="MSId43_remove_to_MSId45_shoppingcart">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.2/@variableContainer_usageScenario/@variableDefinitions_variableContainer.0" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId36_clearcart_to_MSId31" entityName="ve_MSId36_clearcart_to_MSId31" successor="id_mb_639353" predecessor="id_db_894650">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.2/@variableContainer_usageScenario/@variableDefinitions_variableContainer.1" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId40_login_to_MSId34_View_Items" entityName="login_to_View_Items" successor="id_mb_363979" predecessor="MSId40_login">
+        <timeSpecification_Delay specification="Norm(1991.0 , 28.0 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_460759" predecessor="MSId43_remove">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId43_remove_to_MSId45_shoppingcart_877150" successor="MSId43_remove_to_MSId45_shoppingcart" propability="0.6429" expression=" ( $clearcart$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId43_remove_to_MSId37_deferorder_929106" successor="MSId43_remove_to_MSId37_deferorder" propability="0.0714"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId43_remove_to_MSId42_purchasecart_228080" successor="MSId43_remove_to_MSId42_purchasecart" propability="0.2857"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId43_remove_to_MSId42_purchasecart" entityName="remove_to_purchasecart" successor="id_ve_MSId43_remove_to_MSId42_purchasecart" predecessor="id_db_460759">
+        <timeSpecification_Delay specification="Norm(2499.0 , 22.360679774997898 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId45_shoppingcart_to_MSId36_clearcart" entityName="ve_MSId45_shoppingcart_to_MSId36_clearcart" successor="id_mb_660998" predecessor="MSId45_shoppingcart_to_MSId36_clearcart">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.2/@variableContainer_usageScenario/@variableDefinitions_variableContainer.1" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_394402" predecessor="MSId32_Add_to_Cartquantity">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId32_Add_to_Cartquantity_to_MSId45_shoppingcart_37079" successor="MSId32_Add_to_Cartquantity_to_MSId45_shoppingcart" propability="0.1355" expression=" ( $clearcart$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId32_Add_to_Cartquantity_to_MSId34_View_Items_690399" successor="MSId32_Add_to_Cartquantity_to_MSId34_View_Items" propability="0.6446" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId32_Add_to_Cartquantity_to_MSId37_deferorder_211638" successor="MSId32_Add_to_Cartquantity_to_MSId37_deferorder" propability="0.098"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId32_Add_to_Cartquantity_to_MSId42_purchasecart_869086" successor="MSId32_Add_to_Cartquantity_to_MSId42_purchasecart" propability="0.1083"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId32_Add_to_Cartquantity_to_MSId31_334260" successor="id_mb_639353" propability="0.0136"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_546621" predecessor="id_start_243950">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId33_INITIAL_to_MSId40_login_376663" successor="MSId40_login" propability="0.9227"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId33_INITIAL_to_MSId34_View_Items_194121" successor="id_mb_363979" propability="0.0183" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId33_INITIAL_to_MSId32_Add_to_Cartquantity_44017" successor="id_mb_665929" propability="0.0346" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId33_INITIAL_to_MSId45_shoppingcart_966666" successor="id_mb_798799" propability="0.0224" expression=" ( $clearcart$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId33_INITIAL_to_MSId36_clearcart_177879" successor="id_ve_MSId33_INITIAL_to_MSId36_clearcart" propability="0.002" expression=" ( $remove$ == false)  &amp;&amp;  ( $clearcart$ == false) "/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId36_clearcart_to_MSId34_View_Items" entityName="ve_MSId36_clearcart_to_MSId34_View_Items" successor="id_mb_363979" predecessor="MSId36_clearcart_to_MSId34_View_Items">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.2/@variableContainer_usageScenario/@variableDefinitions_variableContainer.1" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId32_Add_to_Cartquantity_to_MSId42_purchasecart" entityName="Add_to_Cartquantity_to_purchasecart" successor="id_mb_22658" predecessor="id_db_394402">
+        <timeSpecification_Delay specification="Norm(3997.0 , 27.16615541441225 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId38_home_to_MSId41_logout" entityName="home_to_logout" successor="MSId41_logout" predecessor="id_db_238074">
+        <timeSpecification_Delay specification="Norm(2699.0 , 37.64306044943742 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId43_remove_to_MSId45_shoppingcart" entityName="remove_to_shoppingcart" successor="id_ve_MSId43_remove_to_MSId45_shoppingcart" predecessor="id_db_460759">
+        <timeSpecification_Delay specification="Norm(2499.0 , 22.360679774997898 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId42_purchasecart" successor="id_db_554796" predecessor="id_mb_22658">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5A4XIEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_purchasecart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId34_View_Items_to_MSId38_home" entityName="View_Items_to_home" successor="id_mb_686864" predecessor="id_db_57542">
+        <timeSpecification_Delay specification="Norm(1415.0 , 22.315913604421397 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId38_home" successor="id_db_238074" predecessor="id_mb_686864">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BBhEEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_home&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId45_shoppingcart_to_MSId36_clearcart" entityName="shoppingcart_to_clearcart" successor="id_ve_MSId45_shoppingcart_to_MSId36_clearcart" predecessor="id_db_739885">
+        <timeSpecification_Delay specification="Norm(1499.0 , 22.360679774997898 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_739885" predecessor="MSId45_shoppingcart">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId45_shoppingcart_to_MSId43_remove_399932" successor="MSId45_shoppingcart_to_MSId43_remove" propability="0.1489" expression=" ( $clearcart$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId45_shoppingcart_to_MSId36_clearcart_418460" successor="MSId45_shoppingcart_to_MSId36_clearcart" propability="0.8511" expression=" ( $remove$ == false)  &amp;&amp;  ( $clearcart$ == false) "/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId37_deferorder_to_MSId38_home" entityName="deferorder_to_home" successor="id_mb_686864" predecessor="id_db_339435">
+        <timeSpecification_Delay specification="Norm(2584.0 , 24.020824298928627 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId34_View_Items_to_MSId34_View_Items" entityName="View_Items_to_View_Items" successor="id_mb_363979" predecessor="id_db_57542">
+        <timeSpecification_Delay specification="Norm(2088.0 , 32.96968304366907 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId43_remove_to_MSId37_deferorder" entityName="remove_to_deferorder" successor="id_ve_MSId43_remove_to_MSId37_deferorder" predecessor="id_db_460759">
+        <timeSpecification_Delay specification="2.999"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId32_Add_to_Cartquantity_to_MSId37_deferorder" entityName="Add_to_Cartquantity_to_deferorder" successor="id_mb_93407" predecessor="id_db_394402">
+        <timeSpecification_Delay specification="Norm(4089.0 , 28.142494558940577 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId43_remove" successor="id_db_460759" predecessor="id_ve_MSId45_shoppingcart_to_MSId43_remove">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5An4cEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenarioPart_UsageModel>
+  <usageScenarioPart_UsageModel id="gen_behavior_model3" entityName="gen_behavior_model3">
+    <variableContainer_usageScenario>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="remove"/>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="clearcart"/>
+      <variableDefinitions_variableContainer xsi:type="usagemodel:BooleanVariable" name="cancelorder"/>
+    </variableContainer_usageScenario>
+    <scenarioBehaviour_UsageScenario id="id_usp_sb_gen_behavior_model3" entityName="usp_sb_gen_behavior_model3">
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_160949" predecessor="MSId49_View_Items">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId49_View_Items_to_MSId49_View_Items_520072" successor="MSId49_View_Items_to_MSId49_View_Items" propability="0.7101" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId49_View_Items_to_MSId53_home_89827" successor="MSId49_View_Items_to_MSId53_home" propability="0.0578"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId49_View_Items_to_MSId47_Add_to_Cartquantity_208956" successor="MSId49_View_Items_to_MSId47_Add_to_Cartquantity" propability="0.1664" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId49_View_Items_to_MSId46_227248" successor="id_mb_737102" propability="0.0657"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_764355" predecessor="MSId52_deferorder">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId52_deferorder_to_MSId53_home_62531" successor="MSId52_deferorder_to_MSId53_home" propability="0.6984"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId52_deferorder_to_MSId46_557141" successor="id_mb_737102" propability="0.3016"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId52_deferorder_to_MSId53_home" entityName="deferorder_to_home" successor="id_mb_549087" predecessor="id_db_764355">
+        <timeSpecification_Delay specification="Norm(2758.0 , 25.357444666211933 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId58_remove_to_MSId60_shoppingcart" entityName="remove_to_shoppingcart" successor="id_ve_MSId58_remove_to_MSId60_shoppingcart" predecessor="id_db_274373">
+        <timeSpecification_Delay specification="Norm(2499.0 , 22.360679774997898 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId51_clearcart_to_MSId49_View_Items" entityName="ve_MSId51_clearcart_to_MSId49_View_Items" successor="id_mb_507550" predecessor="MSId51_clearcart_to_MSId49_View_Items">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.3/@variableContainer_usageScenario/@variableDefinitions_variableContainer.1" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId49_View_Items" successor="id_db_160949" predecessor="id_mb_507550">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BOVYEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_View_Items&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId49_View_Items_to_MSId47_Add_to_Cartquantity" entityName="View_Items_to_Add_to_Cartquantity" successor="id_mb_420045" predecessor="id_db_160949">
+        <timeSpecification_Delay specification="Norm(2048.0 , 27.80287754891569 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_125122" successor="MSId60_shoppingcart"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_665113" predecessor="MSId55_login">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId55_login_to_MSId54_inventory_363994" successor="MSId55_login_to_MSId54_inventory" propability="0.0911"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId55_login_to_MSId49_View_Items_724098" successor="MSId55_login_to_MSId49_View_Items" propability="0.7698" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId55_login_to_MSId46_650761" successor="id_mb_737102" propability="0.1391"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId49_View_Items_to_MSId49_View_Items" entityName="View_Items_to_View_Items" successor="id_mb_507550" predecessor="id_db_160949">
+        <timeSpecification_Delay specification="Norm(2385.0 , 32.66496594212215 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId53_home_to_MSId56_logout" entityName="home_to_logout" successor="id_mb_92222" predecessor="id_db_545572">
+        <timeSpecification_Delay specification="Norm(2506.0 , 37.53664875824692 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId58_remove_to_MSId52_deferorder" entityName="ve_MSId58_remove_to_MSId52_deferorder" successor="id_mb_31193" predecessor="MSId58_remove_to_MSId52_deferorder">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.3/@variableContainer_usageScenario/@variableDefinitions_variableContainer.0" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId50_cancelorder_to_MSId46" entityName="ve_MSId50_cancelorder_to_MSId46" successor="id_mb_737102" predecessor="MSId50_cancelorder">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.3/@variableContainer_usageScenario/@variableDefinitions_variableContainer.2" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_797499" successor="MSId58_remove"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_31193" successor="MSId52_deferorder"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId58_remove_to_MSId46" entityName="ve_MSId58_remove_to_MSId46" successor="id_mb_737102" predecessor="id_db_274373">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.3/@variableContainer_usageScenario/@variableDefinitions_variableContainer.0" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId54_inventory" successor="id_db_421344" predecessor="MSId55_login_to_MSId54_inventory">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BPjgEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_inventory&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId48_INITIAL_to_MSId51_clearcart" entityName="ve_MSId48_INITIAL_to_MSId51_clearcart" successor="id_mb_23357" predecessor="id_db_605787">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.3/@variableContainer_usageScenario/@variableDefinitions_variableContainer.1" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId48_INITIAL_to_MSId58_remove" entityName="ve_MSId48_INITIAL_to_MSId58_remove" successor="id_mb_797499" predecessor="id_db_605787">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.3/@variableContainer_usageScenario/@variableDefinitions_variableContainer.0" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId55_login_to_MSId54_inventory" entityName="login_to_inventory" successor="MSId54_inventory" predecessor="id_db_665113">
+        <timeSpecification_Delay specification="Norm(2681.0 , 24.145392935299274 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId49_View_Items_to_MSId53_home" entityName="View_Items_to_home" successor="id_mb_549087" predecessor="id_db_160949">
+        <timeSpecification_Delay specification="Norm(1513.0 , 22.338307903688676 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId60_shoppingcart" successor="id_db_585168" predecessor="id_mb_125122">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5Ay3kEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_shoppingcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId47_Add_to_Cartquantity" successor="id_db_167495" predecessor="id_mb_420045">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BHAoEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_Add_to_Cartquantity&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId47_Add_to_Cartquantity_to_MSId49_View_Items" entityName="Add_to_Cartquantity_to_View_Items" successor="id_mb_507550" predecessor="id_db_167495">
+        <timeSpecification_Delay specification="Norm(1452.0 , 22.315913604421397 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId51_clearcart_to_MSId49_View_Items" entityName="clearcart_to_View_Items" successor="id_ve_MSId51_clearcart_to_MSId49_View_Items" predecessor="MSId51_clearcart">
+        <timeSpecification_Delay specification="1.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_549087" successor="MSId53_home"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId56_logout" successor="id_mb_737102" predecessor="id_mb_92222">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BEkYEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_logout&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_420045" successor="MSId47_Add_to_Cartquantity"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId52_deferorder" successor="id_db_764355" predecessor="id_mb_31193">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5AWysEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_deferorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId57_purchasecart" successor="id_db_714164" predecessor="id_mb_828979">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5A4XIEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_purchasecart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId55_login_to_MSId49_View_Items" entityName="login_to_View_Items" successor="id_mb_507550" predecessor="id_db_665113">
+        <timeSpecification_Delay specification="Norm(1992.0 , 28.35489375751565 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId54_inventory_to_MSId50_cancelorder" entityName="ve_MSId54_inventory_to_MSId50_cancelorder" successor="MSId50_cancelorder" predecessor="MSId54_inventory_to_MSId50_cancelorder">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.3/@variableContainer_usageScenario/@variableDefinitions_variableContainer.2" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId58_remove_to_MSId52_deferorder" entityName="remove_to_deferorder" successor="id_ve_MSId58_remove_to_MSId52_deferorder" predecessor="id_db_274373">
+        <timeSpecification_Delay specification="Norm(2500.0 , 22.360679774997898 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_421344" predecessor="MSId54_inventory">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId54_inventory_to_MSId50_cancelorder_766405" successor="MSId54_inventory_to_MSId50_cancelorder" propability="0.0789" expression=" ( $cancelorder$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId54_inventory_to_MSId46_332681" successor="id_mb_737102" propability="0.9211"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId47_Add_to_Cartquantity_to_MSId57_purchasecart" entityName="Add_to_Cartquantity_to_purchasecart" successor="id_mb_828979" predecessor="id_db_167495">
+        <timeSpecification_Delay specification="Norm(3998.0 , 27.16615541441225 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId53_home" successor="id_db_545572" predecessor="id_mb_549087">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BBhEEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_home&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId58_remove_to_MSId60_shoppingcart" entityName="ve_MSId58_remove_to_MSId60_shoppingcart" successor="id_mb_125122" predecessor="MSId58_remove_to_MSId60_shoppingcart">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.3/@variableContainer_usageScenario/@variableDefinitions_variableContainer.0" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_23357" successor="MSId51_clearcart"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId60_shoppingcart_to_MSId58_remove" entityName="ve_MSId60_shoppingcart_to_MSId58_remove" successor="id_mb_797499" predecessor="MSId60_shoppingcart_to_MSId58_remove">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.3/@variableContainer_usageScenario/@variableDefinitions_variableContainer.0" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_828979" successor="MSId57_purchasecart"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_274373" predecessor="MSId58_remove">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId58_remove_to_MSId60_shoppingcart_112938" successor="MSId58_remove_to_MSId60_shoppingcart" propability="0.6122" expression=" ( $clearcart$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId58_remove_to_MSId52_deferorder_316956" successor="MSId58_remove_to_MSId52_deferorder" propability="0.1633"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId58_remove_to_MSId57_purchasecart_501007" successor="MSId58_remove_to_MSId57_purchasecart" propability="0.1633"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId58_remove_to_MSId46_247331" successor="id_ve_MSId58_remove_to_MSId46" propability="0.0612"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId51_clearcart" successor="MSId51_clearcart_to_MSId49_View_Items" predecessor="id_mb_23357">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5AmqUEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId58_remove" successor="id_db_274373" predecessor="id_mb_797499">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5An4cEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId55_login" successor="id_db_665113" predecessor="id_db_605787">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5A8okEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_login&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId60_shoppingcart_to_MSId58_remove" entityName="shoppingcart_to_remove" successor="id_ve_MSId60_shoppingcart_to_MSId58_remove" predecessor="id_db_585168">
+        <timeSpecification_Delay specification="Norm(1499.0 , 22.360679774997898 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId60_shoppingcart_to_MSId51_clearcart" entityName="ve_MSId60_shoppingcart_to_MSId51_clearcart" successor="id_mb_23357" predecessor="MSId60_shoppingcart_to_MSId51_clearcart">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.3/@variableContainer_usageScenario/@variableDefinitions_variableContainer.1" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId57_purchasecart_to_MSId53_home" entityName="purchasecart_to_home" successor="id_mb_549087" predecessor="id_db_714164">
+        <timeSpecification_Delay specification="Norm(2781.0 , 25.729360660537214 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_585168" predecessor="MSId60_shoppingcart">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId60_shoppingcart_to_MSId51_clearcart_32689" successor="MSId60_shoppingcart_to_MSId51_clearcart" propability="0.035" expression=" ( $remove$ == false)  &amp;&amp;  ( $clearcart$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId60_shoppingcart_to_MSId58_remove_607093" successor="MSId60_shoppingcart_to_MSId58_remove" propability="0.8246" expression=" ( $clearcart$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId60_shoppingcart_to_MSId46_416637" successor="id_mb_737102" propability="0.1404"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_92222" successor="MSId56_logout"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_605787" predecessor="id_start_30279">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId48_INITIAL_to_MSId55_login_1569" successor="MSId55_login" propability="0.486"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId48_INITIAL_to_MSId49_View_Items_773428" successor="id_mb_507550" propability="0.2319" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId48_INITIAL_to_MSId53_home_757859" successor="id_mb_549087" propability="0.0862"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId48_INITIAL_to_MSId56_logout_870548" successor="id_mb_92222" propability="0.1166"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId48_INITIAL_to_MSId47_Add_to_Cartquantity_566650" successor="id_mb_420045" propability="0.0431" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId48_INITIAL_to_MSId60_shoppingcart_143972" successor="id_mb_125122" propability="0.0035" expression=" ( $clearcart$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId48_INITIAL_to_MSId51_clearcart_776762" successor="id_ve_MSId48_INITIAL_to_MSId51_clearcart" propability="0.0012" expression=" ( $remove$ == false)  &amp;&amp;  ( $clearcart$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId48_INITIAL_to_MSId52_deferorder_993445" successor="id_mb_31193" propability="0.0152"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId48_INITIAL_to_MSId57_purchasecart_726149" successor="id_mb_828979" propability="0.014"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId48_INITIAL_to_MSId58_remove_896413" successor="id_ve_MSId48_INITIAL_to_MSId58_remove" propability="0.0023" expression=" ( $clearcart$ == false) "/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId58_remove_to_MSId57_purchasecart" entityName="remove_to_purchasecart" successor="id_ve_MSId58_remove_to_MSId57_purchasecart" predecessor="id_db_274373">
+        <timeSpecification_Delay specification="Norm(2333.0 , 21.702534414210707 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId54_inventory_to_MSId50_cancelorder" entityName="inventory_to_cancelorder" successor="id_ve_MSId54_inventory_to_MSId50_cancelorder" predecessor="id_db_421344">
+        <timeSpecification_Delay specification="Norm(1995.0 , 1.4142135623730951 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="MSId46" predecessor="id_mb_737102"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="id_start_30279" successor="id_db_605787"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:VariableEvaluation" id="id_ve_MSId58_remove_to_MSId57_purchasecart" entityName="ve_MSId58_remove_to_MSId57_purchasecart" successor="id_mb_828979" predecessor="MSId58_remove_to_MSId57_purchasecart">
+        <variableExpressions_variableEvaluation targetVariable="//@usageScenarioPart_UsageModel.3/@variableContainer_usageScenario/@variableDefinitions_variableContainer.0" expression="true"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_737102" successor="MSId46"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_167495" predecessor="MSId47_Add_to_Cartquantity">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId47_Add_to_Cartquantity_to_MSId60_shoppingcart_617981" successor="MSId47_Add_to_Cartquantity_to_MSId60_shoppingcart" propability="0.0444" expression=" ( $clearcart$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId47_Add_to_Cartquantity_to_MSId49_View_Items_331621" successor="MSId47_Add_to_Cartquantity_to_MSId49_View_Items" propability="0.6562" expression=" ( $remove$ == false) "/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId47_Add_to_Cartquantity_to_MSId52_deferorder_469082" successor="MSId47_Add_to_Cartquantity_to_MSId52_deferorder" propability="0.0776"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId47_Add_to_Cartquantity_to_MSId57_purchasecart_55836" successor="MSId47_Add_to_Cartquantity_to_MSId57_purchasecart" propability="0.1072"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId47_Add_to_Cartquantity_to_MSId46_656960" successor="id_mb_737102" propability="0.1146"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_714164" predecessor="MSId57_purchasecart">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId57_purchasecart_to_MSId53_home_677452" successor="MSId57_purchasecart_to_MSId53_home" propability="0.7564"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId57_purchasecart_to_MSId46_419240" successor="id_mb_737102" propability="0.2436"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId47_Add_to_Cartquantity_to_MSId60_shoppingcart" entityName="Add_to_Cartquantity_to_shoppingcart" successor="id_mb_125122" predecessor="id_db_167495">
+        <timeSpecification_Delay specification="Norm(3499.0 , 22.360679774997898 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId60_shoppingcart_to_MSId51_clearcart" entityName="shoppingcart_to_clearcart" successor="id_ve_MSId60_shoppingcart_to_MSId51_clearcart" predecessor="id_db_585168">
+        <timeSpecification_Delay specification="0.999"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:DecisionBranch" id="id_db_545572" predecessor="MSId53_home">
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId53_home_to_MSId56_logout_403798" successor="MSId53_home_to_MSId56_logout" propability="0.929"/>
+        <decisionBranchTransitions_decisionBranch id="id_dbt_MSId53_home_to_MSId46_588101" successor="id_mb_737102" propability="0.071"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Delay" id="MSId47_Add_to_Cartquantity_to_MSId52_deferorder" entityName="Add_to_Cartquantity_to_deferorder" successor="id_mb_31193" predecessor="id_db_167495">
+        <timeSpecification_Delay specification="Norm(4098.0 , 26.43860813280457 )/1000.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:MergeBranch" id="id_mb_507550" successor="MSId49_View_Items"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="MSId50_cancelorder" successor="id_ve_MSId50_cancelorder_to_MSId46" predecessor="id_ve_MSId54_inventory_to_MSId50_cancelorder">
+        <providedRole_EntryLevelSystemCall href="test.system#_8oPh8FqPEeSvcO0JlDwN2Q"/>
+        <operationSignature__EntryLevelSystemCall href="test.repository#_5BIOwEFzEeOHVZnxmOkBKw"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;_app_cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="parentInvocation"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;remove&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="remove"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;clearcart&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="clearcart"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="&quot;cancelorder&quot;"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cancelorder"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenarioPart_UsageModel>
+</usagemodel:UsageModel>

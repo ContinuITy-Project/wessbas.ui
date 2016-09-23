@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<genericReaderConfiguration delimiter=";" preConditionScript="$5$.equals(&quot;200&quot;)">
+    <fieldMap>
+        <entry>
+            <key>Local IP-address</key>
+            <value name="Local IP-address" script="$0$" setterName="setLocalIPAddress" indexArray="0" clazzType="java.lang.String" mandatory="false"/>
+        </entry>
+        <entry>
+            <key>Service Name</key>
+            <value name="Service Name" script="var splitValue = $9$.split(&quot;&amp;&quot;);&#xA;for (item : splitValue) {&#xA;  var parameterName = item.split(&quot;=&quot;).0;&#xA;  if (parameterName.equals(&quot;action&quot;)) {&#xA;     var returnValue = item.split(&quot;=&quot;).1;&#xA;  }&#xA;}&#xA;returnValue" setterName="setStateName" indexArray="9" clazzType="java.lang.String" mandatory="true"/>
+        </entry>
+        <entry>
+            <key>Request End Time</key>
+            <value name="Request End Time" script="new (&quot;org.fortiss.pmwt.wex.ui.helper.DateHelper&quot;,&quot;dd/MMM/yyyy:HH:mm:ss&quot;).parse($1$).getTimeMS() + ($8$ * 1000).longValue()&#xA;" setterName="setRequestEndTime" indexArray="1 8" clazzType="java.lang.Long" mandatory="true"/>
+        </entry>
+        <entry>
+            <key>Host IP</key>
+            <value name="Host IP" script="$0$" setterName="setHostIP" indexArray="0" clazzType="java.lang.String" mandatory="false"/>
+        </entry>
+        <entry>
+            <key>Local Port</key>
+            <value name="Local Port" script="$3$" setterName="setLocalPort" indexArray="3" clazzType="java.lang.Integer" mandatory="false"/>
+        </entry>
+        <entry>
+            <key>Encoding</key>
+            <value name="Encoding" script="&quot;no-encoding&quot;" setterName="setEncoding" indexArray="" clazzType="java.lang.String" mandatory="false"/>
+        </entry>
+        <entry>
+            <key>Method</key>
+            <value name="Method" script="$10$" setterName="setMethod" indexArray="10" clazzType="java.lang.String" mandatory="false"/>
+        </entry>
+        <entry>
+            <key>Session ID</key>
+            <value name="Session ID" script="if ($7$.equals(&quot;-&quot;)) {&#xA;$6$&#xA;} else {&#xA;$7$&#xA;}" setterName="setSessionID" indexArray="7 6 7" clazzType="java.lang.String" mandatory="true"/>
+        </entry>
+        <entry>
+            <key>Parameter Values</key>
+            <value name="Parameter Values" script="$9$" setterName="setParameterValues" indexArray="9" clazzType="java.lang.String" mandatory="false"/>
+        </entry>
+        <entry>
+            <key>Parameter Names</key>
+            <value name="Parameter Names" script="$9$" setterName="setParameterNames" indexArray="9" clazzType="java.lang.String" mandatory="false"/>
+        </entry>
+        <entry>
+            <key>Request Start Time</key>
+            <value name="Request Start Time" script="new (&quot;org.fortiss.pmwt.wex.ui.helper.DateHelper&quot;,&quot;dd/MMM/yyyy:HH:mm:ss&quot;).parse($1$).getTimeMS()" setterName="setRequestStartTime" indexArray="1" clazzType="java.lang.Long" mandatory="true"/>
+        </entry>
+        <entry>
+            <key>Request URL</key>
+            <value name="Request URL" script="$4$" setterName="setRequestURL" indexArray="4" clazzType="java.lang.String" mandatory="false"/>
+        </entry>
+    </fieldMap>
+</genericReaderConfiguration>

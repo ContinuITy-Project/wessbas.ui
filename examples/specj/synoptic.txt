@@ -1,0 +1,9 @@
+#
+#Fri Sep 23 13:18:29 CEST 2016
+synoptic.dumpinvariants.value=--dumpInvariants\=false
+synoptic.separator.value=^---$
+synoptic.expression.value=(?<TYPE>.*)
+synoptic.expression=-r
+synoptic.logfile=C\:\\Users\\voegele\\Applications\\eclipse-modeling-juno-SR2-win32-x86_64\\eclipse\\workspace\\wessbas.ui\\examples\\specj\\synoptic_log.txt
+synoptic.separator=-s
+synoptic.dumpinvariants=-i
